@@ -4,14 +4,8 @@
 
 * Array
 * List
-    * 環状リスト
-    * 双方向リスト（ポインタの分、容量を食う）
-
-|  | メモリ展開 | ランダムアクセス | 追加・削除 |
-|:---|:---|:---:|:---:|
-| Array | 連続 | o O(1) | x O(n) |
-| List | 不連続 |x O(n)| o O(1) |
-
+    * Circular LIst（環状リスト）
+    * Bidirectional List（双方向リスト）...ポインタの分、容量を食う
 * HashTable
     * 開地法（衝突した場合には他の番地を求め、配置）
     * チェイン法（連鎖法）
@@ -20,14 +14,9 @@
     * ハッシュ関数から元の値を推測できない
     * 連想配列として利用
 
-## Stack & Que
+## Stack & Queue
 * Stack
-* Que
-
-|    | メソッド  | 得意な分野 |
-|:---|:---:|:---:|
-| Stack | append & pop | 最新のものから取り上げる |
-| Queue | enque & deque | 古いものから捨てる |
+* Queue
 
 ## Set（集合）
 ### Trees
@@ -43,10 +32,17 @@
 
 ## Sorting Algorithm
 * Selection Sort（選択ソート）
+* Shaker-Sort
+* Com-Sort（コムソート）
+* ノームソート
+* Shell Sort
 * Insertion Sort（挿入ソート）
 * Bubble Sort...O(n^2)
 * Merge Sort...O()
 * Quick Sort
+* Bucket Sort
+* 基数ソート
+* [ソートアルゴリズム12種を可視化してみた](https://qiita.com/r-ngtm/items/f4fa55c77459f63a5228)
 
 ## Array Search
 * 線形探索
