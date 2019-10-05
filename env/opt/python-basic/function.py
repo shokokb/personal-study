@@ -24,7 +24,7 @@ finally:
 	print "Done!"
 
 print "====="
-# 標準入力
+# 標準入力java
 # age_str = input("Enter your age:")
 # age = int(age_str)
 # if age < 20:
