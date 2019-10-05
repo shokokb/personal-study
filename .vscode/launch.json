@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MainList",
+            "request": "launch",
+            "mainClass": "env.opt.data_structures.MainList",
+            "projectName": "personal-study_3754aad9"
+        }
+    ]
+}
