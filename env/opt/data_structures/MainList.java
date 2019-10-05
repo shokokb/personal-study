@@ -29,19 +29,27 @@ class List {
         return size;
     }
 
-    public void append(int data) {
-        Node temp = head;
-        if (head == null) {
-            head = new Node(data);
-        } else {
-            while (temp.next != null) {
-                temp = temp.next;
+    // ランダムアクセス(O(n))
+    public int data(int idx) {
+        int i = 0;
+        Node temp = this.head;
+        while (temp != null) {
+            if (i == idx) {
+                return temp.data;
             }
-            temp.next = new Node(data);
+            temp = temp.next;
+            i += 1;
         }
+        return 0;
     }
 
-    // 挿入(O(1))
+    // 末尾に追加
+    public void append(int data) {
+        int idx = size();
+        // System.out.println("append " + idx + " " + data);
+        insert(size(), data);
+    }
+
     public void insert(int idx, int data) {
         // 元のnode[idx](temp) -> node[idx + 1]となり
         // newNode -> node[idx]となる
@@ -51,12 +59,12 @@ class List {
         if (idx == 0) {
             newNode.next = this.head;
             this.head = newNode;
-        } else if (0 < idx && idx < this.size()) {
+        } else if (0 < idx && idx <= this.size()) {
             int i = 0;
             Node prev = this.head;
             while (prev != null) {
-                // i番目の要素
                 if (i == idx - 1) {
+                    // 挿入(O(1))
                     newNode.next = prev.next;
                     prev.next = newNode;
                     break;
@@ -111,6 +119,8 @@ public class MainList {
         l.append(200);
         l.insert(1, 400);
         l.insert(0, 500);
+        l.print();
+        System.out.println(l.data(2));
         l.print();
         l.remove(3);
         l.print();
