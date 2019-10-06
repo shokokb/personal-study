@@ -1,122 +1,104 @@
+# 頭頂部に最小値が来るヒープ
 class Heap:
     def __init__(self):
         self.data = []
 
-    # heapup
-    # def heapup(self, val):
-    #     i = len(self.data) + 1
-    #     self.data.append(val)
-    #     while (i != 0):
-    #         # idxは０始まりのため、iより-1となる
-    #         c = i - 1
-    #         p = int(c / 2 - 1)
-    #         # swap
-    #         self.data[int(i / 2 - 1)], self.data[i - 1] = \
-    #             self.data[i - 1], self.data[int(i / 2 - 1)]
-    #         i = int(i / 2)
-    #     print(self.data)
-
-    # # heapdown
-    # def heapdown(self):
-    #     # 一番上を取り出す
-    #     ret = self.data[0]
-    #     self.data = self.data[1:]
-    #     # 末尾を最上位に持っていく
-    #     last_num = self.data.heapdown()
-    #     self.data.heapup(0, last_num)
-    
-    #     size = self.size()
-    #     # i = 1
-    #     # p = i
-    #     # l = i * 2
-    #     # r = i * 2 + 1
-    #     # while i > 
-    #     print("top", ret, "data", self.data, "size", size)
-    #     return ret
+    # ながさ
+    def len(self):
+        return len(self.data)
 
     # 深さ
-    def size(self):
+    def depth(self):
         i = 1
-        size = 0
+        depth = 0
         while (i <= len(self.data)):
            i = i * 2
-           size += 1
-        print("size", size, self.data)
-        return size
+           depth += 1
+        return depth
+    
+    # 親ノードの添字
+    def p(c):
+        return (c - 1) // 2
+    
+    # 左側の子ノードの添字
+    def cl(p):
+        return 2 * p + 1
+    
+    # 右側の子ノードの添字
+    def cr(p):
+        return 2 * (p + 1)
+    
+    # 追加
+    def heapup(self, val):
+        self.data.append(int(val))
+        n = self.len() - 1
+        while n > 1:
+            p = Heap.p(n)
+            if (self.data[p] > self.data[n]):
+                self.data[p], self.data[n] = self.data[n], self.data[p]
+            else:
+                break
+            n = n // 2
 
-    # def sort(self, data):
-    #     ret = []
-    #     i = 0
-    #     while (i < len(data)):
-    #         self.heapup(data[i])
-    #         i += 1
-    #     i = 0
-    #     while (len(self.data) > 0 and i < len(self.data)):
-    #         ret.append(self.heapdown())
-    #         i += 1
-    #     return ret
+    def heapdown(self):
+        ret = self.data[0]
+        self.data[0] = self.data.pop()
+        p = 0
+        # 現在のノードがRangeOverしない限り
+        while (p < self.len() - 1):
+            cl = Heap.cl(p)
+            cr = Heap.cr(p)
+            # 右側の子ノードがある場合
+            if cr < self.len():
+                if self.data[cr] < self.data[cl]:
+                    c = cr
+                else:
+                    c = cl
+            # 左側の子ノードがある場合
+            elif cl < self.len():
+                c = cl
+            # そのほかの場合
+            else:
+                return
 
-# heap = Heap()
+            if c < self.data[p]:
+                self.data[c], self.data[p] = self.data[p], self.data[c]
+                p = c
+            else:
+                return
+        return
 
-# class Solution:
-#     pass
-#     def twoSum(self, nums, target):
-#         # Heap Sortで整列させる
-#         heap = Heap()
-#         nums = heap.sort(nums)
-#         print("sort", nums)
-        
-#         # 数字がtargetを超えていたら後方をs削除
-#         i = 0
-#         while i < len(nums):
-#             if nums[i] > target:
-#                 nums = nums[:i - 1]
-#             i += 1
-#         print(nums)
+    # ヒープソート
+    def sort(self):
+        sorted = []
+        while self.len() > 1:
+            sorted.append(self.data[0])
+            self.heapdown()
+        if self.len() == 1:
+            sorted.append(self.data[0])
+        return sorted
 
-#         ans1 = 0
-#         ans2 = 1
-#         for val1 in nums:
-#             for val2 in nums[ans1+1:]:
-#                 if val1 + val2 == target:
-#                     return [ans1, ans2]
-#                 # print(ans1, ans2, val1, val2)
-#                 ans2 += 1
-#             ans1 += 1
-#             ans2 = ans1 + 1
-#         return []
-            
+    # 標準出力
+    def print(self):
+        for n in self.data:
+            print(str(n) + " ", end="")
+        print("")
+    
             
 if __name__ == "__main__":
-    nums = [11, 2, 7, 15]
-    
-# target = 9
-# sol = Solution()
-# ans = sol.twoSum(nums, target)
-# print(ans)
-
-
-
-# ===
-# data = []
-# heap.heapup(1)
-# heap.heapup(3)
-# heap.heapup(6)
-# heap.heapup(4)
-# heap.heapup(8)
-# heap.heapup(7)
-# print(heap.data)
-# heap.heapup(5)
-# print(heap.data)
-
-# ans = []
-# ans.append(heap.heapdown())
-# ans.append(heap.heapdown())
-# ans.append(heap.heapdown())
-# ans.append(heap.heapdown())
-# ans.append(heap.heapdown())
-# ans.append(heap.heapdown())
-# ans.append(heap.heapdown())
-# ans = heap.sort([1, 3, 6, 4, 8, 7, 5])
-# print(ans)
-# ===
+    h = Heap()
+    h.heapup(1)
+    h.heapup(3)
+    h.heapup(6)
+    h.heapup(4)
+    h.heapup(8)
+    h.heapup(7)
+    h.heapup(5)
+    # h.print()
+    print(h.sort())
+    # print(Heap.p(1) == 0)
+    # print(Heap.p(2) == 0)
+    # print(Heap.p(9) == 4)
+    # print(Heap.p(12) == 5)
+    # print(Heap.cl(3) == 7)
+    # print(Heap.cl(3) == 8)
