@@ -1,26 +1,20 @@
 # coding: UTF-8
 
-print "Hello World"
+if __name__ == "__main__":
+		
+	print("Hello World")
+	print("=====")
 
-print "====="
+	print ("""Hello 
+	World""")
+	print \
+	("Hello World")
+	print("=====")
 
-print """Hello 
-World"""
-print \
-"Hello World"
+	print('a')
+	print("=====")
 
-print "====="
-
-print 'a'
-
-print "====="
-
-# NoneType
-print None
-
-print "====="
-
-# 末尾にコロンを打つ
-for i in range(10) :	# 0 ... 9
-	print("Hello World %d" % i)
+	# NoneType
+	print(None)
+	print("=====")
 
