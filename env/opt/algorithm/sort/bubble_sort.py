@@ -1,16 +1,16 @@
 # coding: UTF-8
+from typing import List
 
 # バブルソート（昇順）
-def bubble_sort (target) :
-	for i in range(0, len(target)):
-		back_range = reversed(range(i + 1, len(target)))
-		for j in list(back_range):
-			# 後ろから隣り合う2つを比べて最も小さな数を左に格納してゆく
-			if target[j - 1] > target[j]:
-				target[j], target[j - 1] = target[j - 1], target[j]
-	return target
+# Time Complexy:O(n^2)
+# Space Complaxy:O(n) データの配列分
+def sort (l:List[int]):
+	n = len(l)
+	for i in range(n):
+		for j in range(n-1, i, -1):
+			if l[j-1] > l[j]: l[j-1], l[j] = l[j], l[j-1]
 
 target = [5, 9, 3, 1, 2, 8, 4, 7, 6]
-expected = bubble_sort(target)
-print(expected)
+sort(target)
+print(target)
 
