@@ -7,37 +7,25 @@
 class Solution:
     
     def deepestLeavesSum(self, root: TreeNode) -> int:
-        def depth(tree:TreeNode) -> int:
-            if not tree:
-                return 0
-            return max(depth(tree.left), depth(tree.right)) + 1
-
+        max_depth = 0
         ret = 0
         
-        tree_depth = depth(root)
-        # print("depth", tree_depth)
-        
-        # Breath First Search       
         q = deque()
-        qd = deque()
-
-        q.append(root)
-        qd.append(1)
-
+        q.append((root, max_depth))
+        
         while len(q) > 0:
-            n = q.pop()
-            d = qd.pop()
+            n, d = q.popleft()
             
-            if d == tree_depth:
-                ret += n.val
-                # print(n.val, d)
+            if d > max_depth:
+                ret = n.val
+                max_depth = d
+            else:
+                ret += n.val            
+            #print(n.val,d, max_depth, ret)
             
             if n.left:
-                q.append(n.left)
-                qd.append(d + 1)
+                q.append((n.left,d+1))
             if n.right:
-                q.append(n.right)
-                qd.append(d + 1)
-
+                q.append((n.right,d+1))
+                
         return ret
-        
