@@ -1,21 +1,19 @@
-def selection_sort(target):
-	answer = []
-	for i in range(len(target)):
-		# とりあえず、左端の要素を最小として初期化する
-		min_value = target[i]
-		min_pos = i
-		# 左から見てゆき、最小のものを選択する
-		for j in range(i + 1, len(target)) :
-			if target[j] < min_value:
-				min_pos = j
-				min_value = target[j]
-		# 左端が最小でなければ、スワップする
-		if min_pos != i:
-			target[min_pos], target[i] = target[i], target[min_pos]
-	return target
+from typing import List
+
+# バブルソート（昇順）
+# Time Complexy:O(n^2)
+# Space Complaxy:O(n) データの配列分
+def selection_sort(l:List[int]):
+	n = len(l)
+	for i in range(n):
+		mp, mv = i, l[i]
+		for j in range(i+1, n):
+			if mv > l[j]: mp, mv = j, l[j]
+		l[i], l[mp] = l[mp], l[i]
 
 target = [3, 7, 4, 8, 9, 5, 6, 1, 2]
-answer = selection_sort(target)
-print(answer)
+selection_sort(target)
+print(target)
+
 
 
