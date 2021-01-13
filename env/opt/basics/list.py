@@ -1,5 +1,7 @@
 # coding: UTF-8
 
+from collections import deque
+
 l = [1,2,3,4,5]
 
 # インデックス
@@ -39,3 +41,40 @@ for n in reversed(list_unsort):
 l = [1,5,4,2,3]
 print("find index=", l.index(5))
 
+# stack(List)
+# 挿入
+print("stack - list")
+l = []
+l.append(1)
+l.append(2)
+l.append(3)
+print(l)
+# pop
+print("LIFO=",l.pop())
+
+# stack(deque)
+print("stack - deque")
+q = deque()
+q.append(1)
+q.append(2)
+q.append(3)
+print("LIFO=", q.pop())
+
+# queue(List)
+# 挿入
+print("queue - list")
+l = []
+l.append(1)
+l.append(2)
+l.append(3)
+print(l)
+# pop
+print("FIFO=",l.pop(0))
+
+# queue(deque)
+print("queue - deque")
+q = deque()
+q.append(1)
+q.append(2)
+q.append(3)
+print("FIFO=", q.popleft())
