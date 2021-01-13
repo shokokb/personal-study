@@ -6,26 +6,27 @@
 #         self.right = right
 class Solution:        
     def correctBinaryTree(self, root: TreeNode) -> TreeNode:
-        seen = [root]
+        seen = {root}
         incorrect_num = 0
+        left, right = 0, 1
         
         q = deque()
-        q.append((root, None, 0))
+        q.append((root, None, left))
         while len(q) > 0:
             p, parent, side = q.popleft()
             if p.left:
-                q.append((p.left, p, 0))
-                seen.append(p.left)
+                q.append((p.left, p, left))
+                seen.add(p.left)
             if p.right:
                 if p.right in seen:
                     incorrect_num = p.val
-                    if side == 0:
+                    if side == left:
                         parent.left = None
                     else:
                         parent.right = None
                     break
-                q.append((p.right, p, 1))
-                seen.append(p.right)
+                q.append((p.right, p, right))
+                seen.add(p.right)
                 
         return root
             
