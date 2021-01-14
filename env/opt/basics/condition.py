@@ -1,5 +1,7 @@
 # coding: UTF-8
 
+if __name__ == "__main__":
+
 home = "JP"
 if home == "USA":
 	print "Hello, USA"
