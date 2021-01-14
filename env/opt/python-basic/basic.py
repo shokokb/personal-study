@@ -18,3 +18,8 @@ if __name__ == "__main__":
 	print(None)
 	print("=====")
 
+	a, b = 1, 2
+	print(a, b)
+	a, b = b, a
+	print(a, b)
+
