@@ -1,30 +1,8 @@
-# Data Structure
+# Sort
 
-## Array & List
-
-* Array
-* List
-    * 環状リスト
-    * 双方向リスト（ポインタの分、容量を食う）
-
-|  | メモリ展開 | ランダムアクセス | 追加・削除 |
+| 名前 | メモリ展開 | Time Complexity | Space Complexity |
 |:---|:---|:---:|:---:|
-| Array | 連続 | o O(1) | x O(n) |
-| List | 不連続 |x O(n)| o O(1) |
-
-* HashTable
-    * 開地法（衝突した場合には他の番地を求め、配置）
-    * チェイン法（連鎖法）
-    * ハッシュ関数を複数使用する方法
-    * 線形操作法
-    * ハッシュ関数から元の値を推測できない
-    * 連想配列として利用
-
-## Stack & Queue
-* Stack
-* Queue
-
-|    | メソッド  | 得意な分野 |
-|:---|:---:|:---:|
-| Stack | append & pop | 最新のものから取り上げる |
-| Queue | enque & deque | 古いものから捨てる |
+| Bubble Sort(バブルソート) | 連続 |  |  |
+| Selection Sort(選択ソート) | 不連続 |x O(n)| o O(1) |
+| Insertion Sort(挿入ソート) | 不連続 |x O(n)| o O(1) |
+| Heap Sort(ヒープソート) | 不連続 |x O(n)| o O(1) |

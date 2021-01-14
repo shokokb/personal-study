@@ -1,7 +1,7 @@
 # Complexity
 
-- Time Complexity
-- Space Complexity
+- Time Complexity:時間計算量
+- Space Complexity:空間計算量
 
 # 線形探索
 
