@@ -1,92 +1,83 @@
 # coding: UTF-8
 
-# 降順に並べる
-def push(heap, node):
-	heap.append(node)
+from collections import deque 
 
-	i = len(heap) - 1
-	pi = i / 2
-	while pi >= 1 :
-		p = heap[pi]
-		if p < node:
-			heap[pi], heap[i] = heap[i], heap[pi]
-			i = pi
-			pi = i / 2
-		else :
-			break
-	# print("heap", heap)
-	return heap
+class Heap:
+    @classmethod
+    def __init__(self):
+        self.l = []
 
-def pop (heap):
-	# 先頭のノードを取り出す
-	maximum = heap.pop(1)
+    @classmethod
+    def size(self):
+        return len(self.l)
 
-	# 最後のノードを先頭ノードとして挿入する
-	heap.insert(1, heap[len(heap) - 1])
-	heap.pop()
+    @classmethod
+    def insert (self, val):
+        self.l.append(val)
+        i = self.size()
+        while i > 1:
+            pi = i // 2
+            if self.l[pi-1] > self.l[i-1]:
+                self.l[pi-1], self.l[i-1] = self.l[i-1], self.l[pi-1]
+            i = pi
+        
+    @classmethod
+    def remove(self):
+        
+        if self.size() == 0:
+            return
 
-	i = 1
-	while i < len(heap) :
-		# 左ノード、右ノードを求める
-		l_index = 2 * i
-		r_index = 2 * i + 1
-		if r_index < len(heap):
-			# 左ノードの方が大きい
-			if heap[l_index] > heap[r_index] :
-				if heap[i] > heap[l_index]:
-					# 挿入ノードが最も大きい
-					break
-				else :
-					# 左ノードが最も大きい
-					heap[l_index], heap[i] = heap[i], heap[l_index] 
-					i = 2 * i 
-			else :
-				if heap[i] > heap[r_index]:
-					# 挿入ノードが最も大きい
-					break
-				else : 
-					# 右ノードが最も大きい
-					heap[r_index], heap[i] = heap[i], heap[r_index]
-					i = 2 * i + 1
-		elif l_index < len(heap):
-			if heap[i] > heap[l_index]:
-				# 挿入ノードが最も大きい
-				break;
-			else :
-				# 左ノードしかなく、左ノードが最も大きい
-				heap[l_index], heap[i] = heap[i], heap[l_index] 
-				i = 2 * i 
-		else :
-			break
-	# print("heap, maximum", heap, maximum)
-	return heap, maximum
+        if self.size() == 1:
+            first = self.l.pop(0)
+            return first
 
-# push
-heap = ['*'] 
-heap = push(heap, 5)
-heap = push(heap, 2)
-heap = push(heap, 7)
-heap = push(heap, 3)
-heap = push(heap, 6)
-heap = push(heap, 1)
-heap = push(heap, 4)
+        first = self.l.pop(0)
+        last = self.l.pop()
+        self.l.insert(0, last)
+        pi = 1
+        li = 2 * pi
+        ri = 2 * pi + 1
+        i = ri if ri <= self.size() and self.l[ri-1] < self.l[li-1] else li
+        while i <= self.size():
+            if self.l[pi-1] > self.l[i-1]:
+                self.l[pi-1], self.l[i-1] = self.l[i-1], self.l[pi-1]
+                pi = i
+                li = 2 * pi
+                ri = 2 * pi + 1
+                i = ri if ri <= self.size() and self.l[ri-1] < self.l[li-1] else li
+            else: 
+                break
+        print(first, self.l)
+        return first
+	
+    @classmethod
+    def sort(self):
+        ret = []
+        while self.size() > 0:
+            n = self.remove()
+            ret.append(n)
+        return ret
 
-# pop
-maximum = -1
-answer = []
-heap, maximum = pop(heap)
-answer.append(maximum)
-heap, maximum = pop(heap)
-answer.append(maximum)
-heap, maximum = pop(heap)
-answer.append(maximum)
-heap, maximum = pop(heap)
-answer.append(maximum)
-heap, maximum = pop(heap)
-answer.append(maximum)
-heap, maximum = pop(heap)
-answer.append(maximum)
-heap, maximum = pop(heap)
-answer.append(maximum)
+    @classmethod
+    def display (self):
+        print(self.l)
 
-print(answer)
+
+if __name__ == "__main__":
+    h = Heap()
+
+    h.insert(1)
+    h.insert(3)
+    h.insert(6)
+    h.insert(4)
+    h.insert(8)
+    h.insert(7)
+    h.insert(5)
+    h.insert(2)
+    
+    h.display()
+
+    # h.remove()
+    s = h.sort()
+    print(s)
+
