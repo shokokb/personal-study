@@ -7,3 +7,6 @@ elif home == "JP":
 	print "Hello JP"
 else :
 	print "Hello World"
+
+# 三項演算子
+print("こんにちは" if home == "JP" else "Hello")
