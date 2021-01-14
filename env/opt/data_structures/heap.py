@@ -1,7 +1,5 @@
 # coding: UTF-8
 
-from collections import deque 
-
 class Heap:
     @classmethod
     def __init__(self):

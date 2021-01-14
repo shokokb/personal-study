@@ -1,7 +1,5 @@
 # coding: UTF-8
 
-from collections import deque 
-
 class Heap:
     @classmethod
     def __init__(self):
@@ -12,6 +10,7 @@ class Heap:
         return len(self.l)
 
     @classmethod
+    # Time Complexity = O(log(N))
     def insert (self, val):
         self.l.append(val)
         i = self.size()
@@ -22,6 +21,7 @@ class Heap:
             i = pi
         
     @classmethod
+    # Time Complexity = O(log(N))
     def remove(self):
         
         if self.size() == 0:
@@ -51,6 +51,7 @@ class Heap:
         return first
 	
     @classmethod
+    # Time Complexity = O(Nlog(N))
     def sort(self):
         ret = []
         while self.size() > 0:
