@@ -1,6 +1,6 @@
 from typing import List
 
-# バブルソート（昇順）
+# 選択ソート（昇順）
 # Time Complexy:O(n^2)
 # Space Complaxy:O(n) データの配列分
 def selection_sort(l:List[int]):
