@@ -1,19 +1,37 @@
+# coding: UTF-8
 from typing import List
 
 # 選択ソート（昇順）
 # Time Complexy:O(n^2)
 # Space Complaxy:O(n) データの配列分
-def selection_sort(l:List[int]):
-	n = len(l)
-	for i in range(n):
-		mp, mv = i, l[i]
-		for j in range(i+1, n):
-			if mv > l[j]: mp, mv = j, l[j]
-		l[i], l[mp] = l[mp], l[i]
+def sort(l:List[int]):
+	
+	if len(l) == 0:
+		return []
 
-target = [3, 7, 4, 8, 9, 5, 6, 1, 2]
-selection_sort(target)
-print(target)
+	sorted = []
+	while len(l) > 0:
+		n = l.pop(0)
+		if len(sorted) == 0:
+			sorted.append(n)
+			continue
+		
+		if sorted[-1] < n:
+			sorted.append(n)
+			continue
+		
+		for i, v in enumerate(sorted):
+			if v > n:
+				sorted.insert(i, n)
+				break
+		print(sorted)
+
+	return sorted
+
+if __name__ == "__main__":
+	target = [3, 7, 4, 8, 9, 5, 6, 1, 2]
+	sorted = sort(target)
+	print(sorted)
 
 
 
