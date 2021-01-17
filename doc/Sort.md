@@ -1,30 +1,25 @@
-# Data Structure
+# Sort
 
-## Array & List
+# Bubble Sort
 
-* Array
-* List
-    * 環状リスト
-    * 双方向リスト（ポインタの分、容量を食う）
+# Selection Sort
 
-|  | メモリ展開 | ランダムアクセス | 追加・削除 |
-|:---|:---|:---:|:---:|
-| Array | 連続 | o O(1) | x O(n) |
-| List | 不連続 |x O(n)| o O(1) |
+- 挿入時に線形探索から二分探索にすると高速化できる
 
-* HashTable
-    * 開地法（衝突した場合には他の番地を求め、配置）
-    * チェイン法（連鎖法）
-    * ハッシュ関数を複数使用する方法
-    * 線形操作法
-    * ハッシュ関数から元の値を推測できない
-    * 連想配列として利用
+# Merge Sort
 
-## Stack & Queue
-* Stack
-* Queue
 
-|    | メソッド  | 得意な分野 |
-|:---|:---:|:---:|
-| Stack | append & pop | 最新のものから取り上げる |
-| Queue | enque & deque | 古いものから捨てる |
+# Order Table
+
+
+| 名前 | Time Complexity | WCTC | Space Complexity | Memory | Stable |
+|:---|:---:|:---:|:---:|:---:|:---:|
+| Bubble Sort(バブルソート) | O(n^2) | O(n^2) | O(n) | O(1) | Stable |
+| Selection Sort(選択ソート)  O(n^2) | O(n^2) | O(n)|O(n) | O(1) | Unstable |
+| Insertion Sort(挿入ソート) | O(n^2) | O(n^2)| O(n) | O(1) | Stable |
+| Heap Sort(ヒープソート) | O(nlogn) | O(nlogn)| O(n) | O(1) | Unstable |
+| Merge Sort(マージソート) | O(nlogn) | O(nlogn)|  |  O(n) | Stable| 
+| Merge Sort(マージソート) | O(nlogn) | O(nlogn)|  |  O(n) | Stable| 
+| Quick Sort(クイックソート) | O(nlogn) | O(nlogn)|  | O(log(n))  | Stable| 
+| Count Sort(カウントソート) | O(nk) | O(n^2k)|  |  O(nk) | Unstable| 
+
