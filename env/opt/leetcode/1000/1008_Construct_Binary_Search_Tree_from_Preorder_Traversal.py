@@ -5,24 +5,26 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def convert(self, l:List[TreeNode]) -> TreeNode:
-        if len(l) == 0:
+    def convert(self, parent:TreeNode, preorder:List[int]) -> TreeNode:
+        if len(preorder) == 0:
             return None
         
-        if len(l) == 1:
-            return l[0]
-        
-        parent = l[0]
-        left = list(filter(lambda n: n.val < parent.val, l))
-        right = list(filter(lambda n: n.val > parent.val, l))
+        if len(preorder) == 1:
+            return parent
+
+        left = list(filter(lambda n: n < parent.val, preorder))
+        right = list(filter(lambda n: n > parent.val, preorder))
+        # print("tree", left, parent.val, right)
         if len(left) > 0:
-            parent.left = left[0]
-            self.convert(left)
+            parent.left = TreeNode(left[0])
+            self.convert(parent.left, left)
         if len(right) > 0:                
-            parent.right = right[0]
-            self.convert(right)
+            parent.right = TreeNode(right[0])
+            self.convert(parent.right, right)
         
     def bstFromPreorder(self, preorder: List[int]) -> TreeNode:
-        l = [TreeNode(v) for v in preorder]
-        self.convert(l)
-        return l[0]
+        root = TreeNode(preorder[0])
+        self.convert(root, preorder)
+        return root
+                
+        
