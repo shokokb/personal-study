@@ -12,9 +12,16 @@ class Solution:
         if a * b >= 0:
             # sum of two positive integers x + y
             # where x > y
-            x = sum([x, y])
+            while y:
+                answer = x ^ y
+                carry = (x & y) << 1
+                x, y = answer, carry
         else:
             # difference of two integers x - y
             # where x > y
-            x = sum([x, -y])
+            while y:
+                answer = x ^ y
+                borrow = ((~x) & y) << 1
+                x, y = answer, borrow
+        
         return x * sign
