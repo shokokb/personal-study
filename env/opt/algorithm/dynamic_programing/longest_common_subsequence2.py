@@ -12,9 +12,9 @@ def answer (str1:str, str2:str) -> int:
     for i1 in range(1, n1+1):
         for i2 in range(1, n2+1):
             if s1[i1] == s2[i2]:
-                g[i1][i2] = max([g[i1-1][i2],g[i1][i2-1],g[i1-1][i2-1]+1])
+                g[i1][i2] = g[i1-1][i2-1]+1
             else:
-                g[i1][i2] = max([g[i1-1][i2],g[i1][i2-1]])
+                g[i1][i2] = 0
     #print(g)
     return g[-1][-1]
 
