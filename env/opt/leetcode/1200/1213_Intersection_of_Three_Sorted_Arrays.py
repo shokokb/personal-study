@@ -1,3 +1,6 @@
 class Solution:
-    def arraysIntersection(self, arr1: List[int], arr2: List[int], arr3: List[int]) -> List[int]:        
-        return sorted(list(set(arr1) & set(arr2) & set(arr3)))
+    def arraysIntersection(self, arr1: List[int], arr2: List[int], arr3: List[int]) -> List[int]:  
+        c = collections.Counter(arr1 + arr2 + arr3)
+        ret = list(filter(lambda k: c[k] == 3, c.keys()))
+        return ret
+        
