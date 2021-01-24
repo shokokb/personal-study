@@ -1,9 +1,8 @@
 class Solution:
     def isArmstrong(self, N: int) -> bool:
-        digit = len(list(str(N)))
+        nums = [int(n) for n in str(N)]
+        digit = len(nums)
         sumv = 0
-        n = N
-        while n > 0:
+        for n in nums:
             sumv += (n % 10) ** digit
-            n //= 10
         return N == sumv
