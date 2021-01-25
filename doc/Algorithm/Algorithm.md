@@ -3,13 +3,11 @@
 - Time Complexity:時間計算量
 - Space Complexity:空間計算量
 
+# Tree
 
+- Graph には平路が存在するが、Tree には平路は存在しない
 
 ## 枝刈り
-
-### ダイクストラ法
-
-### ベルマンフォード
 
 
 ## P/NP/NP-Complete/NP-Hard 問題
