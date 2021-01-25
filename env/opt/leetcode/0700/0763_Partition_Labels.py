@@ -3,7 +3,7 @@ class Solution:
         for i, c in enumerate(S):
             s1 = set(S[0:i+1])
             s2 = set(S[i+1:])
-            if len(s1 & s2) == 0:
+            if s1.isdisjoint(s2):
                 return S[0:i+1]
         return ""
 
@@ -15,3 +15,5 @@ class Solution:
             index += len(s)
             ret.append(len(s))
         return ret
+            
+                
