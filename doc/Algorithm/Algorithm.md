@@ -84,3 +84,5 @@ LS ハッシュ　似たようなデータを入れたときに似たような�
 ワンパスアルゴリズム
 
 - ビットベクトル
+
+https://qiita.com/drken/items/872ebc3a2b5caaa4a0d0

@@ -1,54 +1,40 @@
 # coding: UTF-8
 from typing import List
-from collections import deque
-from collections import defaultdict
 import math
 
 
 # ベルマン・フォード法
 # Time Complexy:O(mn)
-def search(start: str, end: str, edges: List[tuple]) -> int:
-    tmp_edges = edges.copy()
-    change = True
+def bellman_ford(start:int, edges: List) -> List:
+    n = len({x for x, y, z in edges} | {y for x, y, z in edges})
+    d = [math.inf] * n
+    d[0] = start
 
-    # 距離
-    distance = {
-        c: math.inf
-        for c in [chr(c) for c in range(ord(start),
-                                        ord(end) + 1)]
-    }
-    distance[start] = 0
-
-    queue = deque()
-    queue.append(start)
-
-    while change:
-        change = False
-        # O(m)
-        while tmp_edges:
-            point_from = queue.popleft()
-            cur_edges = list(filter(lambda edge: edge[0] == point_from, tmp_edges))
-            for edge in cur_edges:
-                point_to = edge[1]
-                if distance[point_from] + edge[2] < distance[point_to]:
-                    distance[point_to] = distance[point_from] + edge[2]
-                    change = True
-                tmp_edges.remove(edge)
-                queue.append(point_to)
-        print(distance)
-
-    return distance[end]
-
+    for i in range(n):
+        update = False
+        for x, y, z in edges:
+            if d[y] > d[x] + z:
+                d[y] = d[x] + z
+                update = True
+        if not update:
+            break
+        # 負平路空間が存在する
+        if i == n - 1:
+            return []
+    return d
 
 if __name__ == "__main__":
 
-    edges = [('A', 'B', 9), ('A', 'C', 2), ('B', 'C', 6), ('B', 'D', 3),
-             ('B', 'E', 1), ('C', 'D', 2), ('C', 'F', 9), ('D', 'E', 5),
-             ('D', 'F', 6), ('E', 'F', 3), ('E', 'G', 7), ('F', 'G', 4),
-             ('B', 'A', 9), ('C', 'A', 2), ('C', 'B', 6), ('D', 'B', 3),
-             ('E', 'B', 1), ('D', 'C', 2), ('F', 'C', 9), ('E', 'D', 5),
-             ('F', 'D', 6), ('F', 'E', 3), ('G', 'E', 7), ('G', 'F', 4)]
+    edges = []
+    # 有向グラフ(始点・終点・重み)
+    inputs = [[0, 1, 9], [0, 2, 2], [1, 2, 6], [1, 3, 3],
+             [1, 4, 1], [2, 3, 2], [2, 5, 9], [3, 4, 5],
+             [3, 5, 6], [4, 5, 3], [4, 6, 7], [5, 6, 4]]
+    # 無効グラフ
+    for x, y, z in inputs:
+        edges.append([x, y, z])
+        edges.append([y, x, z])
 
-    result = search('A', 'G', edges)
+    result = bellman_ford(0, edges)
 
     print(result)
