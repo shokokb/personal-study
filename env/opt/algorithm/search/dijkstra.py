@@ -11,9 +11,14 @@ def bellman_ford(start: int, edges: List) -> List:
     d[start] = 0
     applied = [start]
 
-    while applied: #O(n)
-        p1 = min(applied)
+    while applied:
+        # 最小のノードを見つける
+        p1 = applied[0]
+        for i in applied:
+            if d[i] < d[p1]:
+                p1 = i
         applied.remove(p1)
+        # 隣のノードを更新する
         for x, y, z in edges: #O(m)
             if x == p1:
                 if d[y] > d[x] + z:
