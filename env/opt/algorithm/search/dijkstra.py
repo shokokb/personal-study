@@ -11,10 +11,10 @@ def bellman_ford(start: int, edges: List) -> List:
     d[start] = 0
     applied = [start]
 
-    while applied:
+    while applied: #O(n)
         p1 = min(applied)
         applied.remove(p1)
-        for x, y, z in edges:
+        for x, y, z in edges: #O(m)
             if x == p1:
                 if d[y] > d[x] + z:
                     d[y] = d[x] + z
