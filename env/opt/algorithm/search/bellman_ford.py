@@ -8,7 +8,7 @@ import math
 def bellman_ford(start:int, edges: List) -> List:
     n = len({x for x, y, z in edges} | {y for x, y, z in edges})
     d = [math.inf] * n
-    d[0] = start
+    ds[start] = 0
 
     for i in range(n):
         update = False
