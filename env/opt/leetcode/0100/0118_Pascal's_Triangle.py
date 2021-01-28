@@ -1,14 +1,17 @@
 class Solution:
     def generate(self, numRows: int) -> List[List[int]]:
-        v = []
-        for row in range(numRows):
-            v.append([0] * (row + 1))
-        print(v)
+        triangle = []
+        for row_num in range(numRows):
+            row = [None for _ in range(row_num + 1)]
+            row[0] = row[-1] = 1
+            triangle.append(row)
         
         for row in range(numRows):
-            for col in range(row + 1):
-                if row == 0 or col == 0 or col == row:
-                    v[row][col] = 1
-                    continue
-                v[row][col] = v[row-1][col-1] + v[row-1][col]
-        return v
+            l, r = 1, row - 1
+            while l <= r:
+                triangle[row][l] = \
+                triangle[row][r] = \
+                triangle[row-1][l-1] + triangle[row-1][l]
+                l += 1
+                r -= 1
+        return triangle
