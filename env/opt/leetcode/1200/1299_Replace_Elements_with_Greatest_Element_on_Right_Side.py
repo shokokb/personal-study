@@ -1,9 +1,10 @@
 class Solution:
     def replaceElements(self, arr: List[int]) -> List[int]:
         ret = []
+        d = deque()
         for i in range(len(arr) - 1, -1, -1):
             if i == len(arr) - 1:
-                ret.insert(0, -1)
+                d.appendleft(-1)
                 continue
-            ret.insert(0, max(arr[i+1], ret[0]))
-        return ret
+            d.appendleft(max(arr[i+1], d[0]))
+        return list(d)
