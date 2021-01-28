@@ -1,9 +1,9 @@
 class Solution:
     def replaceElements(self, arr: List[int]) -> List[int]:
-        ans = list()
-        while arr:
-            arr.pop(0)
-            ans.append(max(arr) if len(arr) > 0 else -1)        
-        return ans
-            
-        
+        ret = []
+        for i in range(len(arr) - 1, -1, -1):
+            if i == len(arr) - 1:
+                ret.insert(0, -1)
+                continue
+            ret.insert(0, max(arr[i+1], ret[0]))
+        return ret
