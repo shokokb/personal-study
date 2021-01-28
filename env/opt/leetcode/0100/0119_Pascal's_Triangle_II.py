@@ -1,16 +1,16 @@
 class Solution:
-    def getRow(self, rowIndex: int) -> List[int]: 
-
-        def getNum(row:int, col:int) -> int:
-            if row == 0 or col == 0 or row == col:
-                return 1
-            return getNum(row-1, col-1) + getNum(row-1, col) 
-
+    def getRow(self, rowIndex: int) -> List[int]:
         
-        ans = []
-        for col in range(rowIndex + 1):
-            ans.append(getNum(rowIndex, col))
-        return ans
+        v = []
+        for row in range(rowIndex + 1):
+            v.append([0] * (row + 1))
+        # print(v)
 
-        
-        
+        for row in range(rowIndex + 1):
+            for col in range(row + 1):
+                if row == 0 or col == 0 or col == row:
+                    v[row][col] = 1
+                    continue
+                v[row][col] = v[row-1][col-1] + v[row-1][col]
+
+        return v[rowIndex]
