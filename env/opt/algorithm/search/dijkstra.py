@@ -4,13 +4,15 @@ import math
 
 
 # ダイクストラ法
-# Time Complexy:O(mn)
+# Time Complexy:O(n^2)
 def bellman_ford(start: int, edges: List) -> List:
     n = len({x for x, y, z in edges} | {y for x, y, z in edges})
     d = [math.inf] * n
     d[start] = 0
     applied = [start]
 
+    # 1点ずつノードを更新し、
+    # 最短の次のノードを探す
     while applied:
         # 最小のノードを見つける
         p1 = applied[0]
