@@ -1,10 +1,15 @@
 class Solution:
     def twoSumLessThanK(self, nums: List[int], k: int) -> int:
         nums = list(filter(lambda x: x < k, nums))
-        combs = combinations(nums, 2)
+        nums.sort(reverse=True)
         sumv = -1
-        for comb in combs:
-            if sumv < sum(comb) < k:
-                sumv = sum(comb)
+        for i, n in enumerate(nums):
+            for j, m in enumerate(nums[i+1:]):
+                if n + m >= k:
+                    pass
+                elif n + m > sumv:
+                    sumv = n + m
+                    break
+                else:
+                    break
         return sumv
-        
