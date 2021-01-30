@@ -7,10 +7,6 @@ class Solution:
         pivot = (n - 1) // 2
         # print("pivot", pivot)
         cnt = 0
-        if n % 2 == 0:
-            for i in range(pivot + 1):
-                cnt += center - arr[i]
-        else:
-            for i in range(pivot + 1):
-                cnt += center - arr[i]
+        for i in range(pivot + 1):
+            cnt += center - arr[i]
         return cnt
