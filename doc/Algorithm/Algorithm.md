@@ -83,6 +83,11 @@ LS ハッシュ　似たようなデータを入れたときに似たような�
 
 ワンパスアルゴリズム
 
+# 素因数分解
+
+- prime number=素数
+- 試し割り法　https://note.nkmk.me/python-prime-factorization/
+
 - ビットベクトル
 
 https://qiita.com/drken/items/872ebc3a2b5caaa4a0d0
