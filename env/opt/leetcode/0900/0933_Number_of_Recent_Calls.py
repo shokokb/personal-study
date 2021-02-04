@@ -1,13 +1,13 @@
 class RecentCounter:
 
     def __init__(self):
-        self.requests = []
+        self.slide_window = deque()
 
     def ping(self, t: int) -> int:
-        self.requests.append(t)
-        # self.requests.sort()
-        term = [t - 3000, t]
-        return len(list(filter(lambda x: term[0] <= x <= term[1], self.requests)))
+        self.slide_window.append(t)
+        while self.slide_window[0] < t - 3000:
+            self.slide_window.popleft()
+        return len(self.slide_window)
 
 
 # Your RecentCounter object will be instantiated and called as such:
