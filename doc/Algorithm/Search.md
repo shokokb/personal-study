@@ -5,7 +5,7 @@
 - Time Complexity:O(n)
 - 配列はソートされていなくて良い
 
-## Binary Search
+## Binary Search(二分木)
 
 - Time Complex:O(logN)
 - 配列は常に序列が守られている必要がある
