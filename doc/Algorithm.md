@@ -126,3 +126,5 @@ B 木
 - ビットベクトル
 
 https://qiita.com/drken/items/872ebc3a2b5caaa4a0d0
+
+# BCR(Best convervable Runtime)
