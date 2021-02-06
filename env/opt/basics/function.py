@@ -2,6 +2,7 @@
 def f(x):
 	return 2 * x
 
+# 複数の戻り値を返せる
 def swap (x, y):
 	return y, x
 
