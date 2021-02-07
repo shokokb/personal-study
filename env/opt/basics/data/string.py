@@ -6,6 +6,12 @@ if __name__ == "__main__":
     # 改行
     print(r'C:\names\name')
 
+    # srartWith
+    s = "My name is Shoko"
+    print(s.startswith('My'))
+    if s.startswith('My'):
+        print("Started with My")
+
     # 繰り返し
     print("x" * 5)
 
@@ -13,6 +19,9 @@ if __name__ == "__main__":
     print("Py" + "thon")
     print("".join(["Py", "thon"]))
     print("Hi" * 3 + ", Mike!")
+    print(f'{"Hi!" * 3}, Mike!')
+    print('a is {}'.format('a'))
+    print('a is {0} {1} {2}'.format(1, 2, 3))
     s = ('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' 'BBBBBBBBBBBBBBBBBBBBBBBBBBBBB')
     print(s)
 
@@ -21,6 +30,9 @@ if __name__ == "__main__":
     print(str[:3])
     print(str[3:])
     print(str[0:len(str):2])
+    word = "Python"
+    word = "J" + word[1:]
+    print(word)
 
     # ヒアドキュメント
     print("######")
@@ -30,7 +42,33 @@ line2
 line3\
     """)
     print("######")
+
+    # 文字列長
+    print(len("abc"))
  
+    # find rfind
+    s = 'My name is Mike Mikel'
+    print("index", s.index('Mike'))
+    print("find", s.find('Mike'))
+    print("rfind", s.find('Mike'))
+
+    # count
+    print("count", s.count('Mike'))
+
+    # capitalize
+    s = 'my name is mike'
+    print(s.capitalize())
+    # title 
+    print(s.title())
+    # upper/lower
+    print(s.upper())
+    print(s.lower())
+    
+    # replace
+    s = 'My name is Mike'
+    s = s.replace('Mike', 'Nancy')
+    print(s)
+
     print("ord", ord("％"))
     print("chr", chr(65285))
 
@@ -41,18 +79,17 @@ line3\
     print("ascii", ascii(str))
     print("encode", str.encode()) #'b"hello world" バイト型
 
-    print(str.find("l"))
-    print(str.find("x"))
-    print(str.rfind("l"))
-    print(str.index("l"))
+        
+
 
     x = b'abc'
     y = bytearray(x)
     print("bytearray", y[0])
 
-    # === EVAL
+    # === eval
     ans = eval("1+2")
     print(ans)
 
     exec("a = 1 + 4")
     exec("print(a)")
+    
