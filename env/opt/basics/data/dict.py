@@ -30,3 +30,24 @@ print("hash5(連結)", hash5)
 print("=== defaultdict ===")
 hash6 = defaultdict(lambda: None)
 print(hash6["grape"])
+
+# update
+d1 = {'x':100,'y':200}
+d2 = {'x':300,'z':400}
+print(d1)
+d1.update(d2)
+print(d1)
+
+# get
+print(d1.get('n'))
+
+# pop
+print(d1.pop('x'))
+
+# del
+del d1['y']
+print(d1)
+
+# clear 
+d1.clear()
+print(d1)
