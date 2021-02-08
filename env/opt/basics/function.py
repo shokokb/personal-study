@@ -37,6 +37,9 @@ def append_array(a:int, arr:List = None) -> List[int]:
 def getName(first_name, family_name = ""):
 	return family_name + " " + first_name
 
+def menu(**kwargs):
+	print(kwargs)
+
 if __name__ == "__main__":
 	print(f(3))
 	print(swap(3, 4))
@@ -70,3 +73,5 @@ if __name__ == "__main__":
 	say_something("Mike", "John", "Yoko")
 
 	append_array(100)
+
+	menu(top="bible",second="dictionary")
