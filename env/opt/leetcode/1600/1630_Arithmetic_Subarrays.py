@@ -5,5 +5,10 @@ class Solution:
             arr = nums[l[i]:r[i]+1]
             arr.sort()
             d = arr[1]-arr[0]
-            ret.append(all([arr[i+1]-arr[i] == d for i in range(0,len(arr)-1)]))
+            for i in range(0,len(arr)-1):
+                if arr[i+1]-arr[i] != d:
+                    ret.append(False)
+                    break
+                if arr[i+1]-arr[i] == d and i == len(arr) - 2:
+                    ret.append(True)
         return ret
