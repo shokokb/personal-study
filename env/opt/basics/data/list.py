@@ -1,5 +1,6 @@
 # coding: UTF-8
 
+
 if __name__ == "__main__":
     l = [1,2,3,4,5]
 
@@ -10,6 +11,14 @@ if __name__ == "__main__":
     # インデックス＆要素
     for i, n in enumerate(l):
         print("enumerate", i, n)
+
+    # リストの連結
+    a = [1,2,3]
+    b = [4,5,6]
+    print(a + b)
+    # b += a
+    b.extend(a)
+    print(b)
 
     # 逆順アクセス
     for n in l[::-1]:
@@ -30,6 +39,7 @@ if __name__ == "__main__":
 
     # 逆順
     list_unsort = [1,5,4,2,3]
+    print(list_unsort[::-1])
     list_unsort.reverse()
     print(list_unsort)
     
@@ -41,7 +51,14 @@ if __name__ == "__main__":
 
     # 検索
     l = [1,5,4,2,3]
-    print("find index=", l.index(5))
+    print("find index=", l.index(5))# 
+
+    # スライス
+    # 文字列には直接代入できないが、スライスはできる
+    l[2:4] = [1,2]
+    print(l)
+    l[2:4] = []
+    print(l)
 
     # stack(List)
     # 挿入
@@ -64,4 +81,35 @@ if __name__ == "__main__":
     print(l)
     # pop
     print("FIFO=",l.pop(0))
+
+    #index
+    r = [1, 2, 3, 4, 5, 1, 2, 3]
+    print("index", r.index(3, 3))
+    
+    # count
+    print("count", r.count(2))
+
+    # exist
+    print(5 in r)
+
+    # remove
+    l = [1, 2, 2, 3, 4]
+    l.remove(2)
+    print(l)
+
+    # del
+    l = [1,2,3,4,5]
+    del l[2]
+    print(l)
+
+    # 参照渡し
+    j = [1,2,3,4,5]
+    i = j
+    i[0] = 100
+    print(j)
+
+    j = [1,2,3,4,5]
+    i = j.copy()
+    i[0] = 100
+    print(j)
 
