@@ -39,8 +39,11 @@ def getName(first_name, family_name = ""):
 
 def menu(**kwargs):
 	print(kwargs)
+<<<<<<< HEAD
 	for k, v in  kwargs.items():
 		print(k, v)
+=======
+>>>>>>> ef23e448f1fa48d20c2c25f3cc827fc3a5b1882f
 
 if __name__ == "__main__":
 	print(f(3))
