@@ -46,6 +46,7 @@ def odd_str(x):
 print(odd_str(2))
 print(odd_str(3))
 
+# リストのデフォルト引数に空文字列を与えない
 def getName(first_name, family_name = ""):
 	return family_name + " " + first_name
 
