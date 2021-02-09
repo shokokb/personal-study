@@ -23,3 +23,5 @@ if __name__ == "__main__":
 	a, b = b, a
 	print(a, b)
 
+	print("global", globals())
+
