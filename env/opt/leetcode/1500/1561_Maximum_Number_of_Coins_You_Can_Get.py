@@ -1,10 +1,10 @@
 class Solution:
     def maxCoins(self, piles: List[int]) -> int:
         piles.sort()
-        n = len(piles)
+        q = deque(piles)        
         mine = 0
-        while piles:
-            piles.pop()
-            mine += piles.pop()
-            piles.pop(0)
+        while q:
+            q.pop()
+            mine += q.pop()
+            q.popleft()
         return mine   
