@@ -18,3 +18,6 @@ if __name__ == "__main__":
     print(t.index(1))
     # count
     print(t.count("apple"))
+
+    t = tuple(i for i in range(10))
+    print(t)
