@@ -23,15 +23,10 @@ class Heap:
     def pop(self):
         
         if self.size() == 0:
-            return
-
-        if self.size() == 1:
-            first = self.l.pop(0)
-            return first
+            return None
 
         first = self.l.pop(0)
-        last = self.l.pop()
-        self.l.insert(0, last)
+        self.l.insert(0, self.l.pop())
         pi = 1
         li = 2 * pi
         ri = 2 * pi + 1
