@@ -10,7 +10,7 @@ class Heap:
         return len(self.l)
 
     @classmethod
-    def insert (self, val):
+    def push (self, val):
         self.l.append(val)
         i = self.size()
         while i > 1:
@@ -20,7 +20,7 @@ class Heap:
             i = pi
         
     @classmethod
-    def remove(self):
+    def pop(self):
         
         if self.size() == 0:
             return
@@ -52,7 +52,7 @@ class Heap:
     def sort(self):
         ret = []
         while self.size() > 0:
-            n = self.remove()
+            n = self.pop()
             ret.append(n)
         return ret
 
@@ -64,18 +64,18 @@ class Heap:
 if __name__ == "__main__":
     h = Heap()
 
-    h.insert(1)
-    h.insert(3)
-    h.insert(6)
-    h.insert(4)
-    h.insert(8)
-    h.insert(7)
-    h.insert(5)
-    h.insert(2)
+    h.push(1)
+    h.push(3)
+    h.push(6)
+    h.push(4)
+    h.push(8)
+    h.push(7)
+    h.push(5)
+    h.push(2)
     
     h.display()
 
-    n = h.remove()
-    print("remove=", n)
+    n = h.pop()
+    print("pop=", n)
     h.display()
 

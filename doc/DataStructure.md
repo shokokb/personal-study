@@ -21,6 +21,7 @@
   - 双方向リスト
     - deque
 
+## Priority Queue
 ## Tree(木構造)
 
 各要素をノード(node)と呼ぶ
