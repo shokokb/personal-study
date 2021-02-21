@@ -12,12 +12,9 @@ class Solution:
         return ret
     def killProcess(self, pid: List[int], ppid: List[int], kill: int) -> List[int]:
         d = dict()
-        root = None
         for id in pid:
             d[id] = TreeNode(id)
         for i, id in enumerate(pid):
-            if ppid[i] == 0:
-                root = d[id]
-            else:
+            if ppid[i] != 0:
                 d[ppid[i]].children.append(d[id])         
         return self.dfs(d[kill])
