@@ -1,6 +1,6 @@
 class Solution:
-    def findMin(self, nums: List[int]) -> int:
-        def find_rotated_index(left:int, right:int) -> int:
+    def search(self, nums: List[int], target: int) -> int:
+        def find_rotate_index(left:int, right:int) -> int:
             if nums[left] < nums[right]:
                 return 0
             while left <= right:
@@ -8,15 +8,37 @@ class Solution:
                 if nums[pivot] > nums[pivot + 1]:
                     return pivot + 1
                 else:
-                    if nums[left] > nums[pivot]:
+                    if nums[pivot] < nums[left]:
                         right = pivot - 1
                     else:
                         left = pivot + 1
+        
+        def search(left:int, right:int) -> int:
+            while left <= right:
+                pivot = (left + right) // 2
+                if nums[pivot] == target:
+                    return pivot
+                else:
+                    if target < nums[pivot]:
+                        right = pivot - 1
+                    else:
+                        left = pivot + 1
+            return -1
+        
         n = len(nums)
         
         if n == 1:
-            return nums[0]
+            return 0 if nums[0] == target else -1
         
-        rotated_index = find_rotated_index(0, n - 1)
-        # print(rotated_index)
-        return nums[rotated_index]
+        rotate_index = find_rotate_index(0, n - 1)
+        print(rotate_index)
+        
+        if nums[rotate_index] == target:
+            return rotate_index
+        
+        if rotate_index == 0:
+            return search(0, n - 1)
+        if target < nums[0]:
+            return search(rotate_index, n - 1)
+        return search(0, rotate_index)
+        
