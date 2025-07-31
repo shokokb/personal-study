@@ -1,40 +1,40 @@
-# personal-study
+# Personal Study Repository
 
-🇯🇵 ソフトウェアエンジニア（SWE）面接準備のための個人勉強リポジトリです。  
-🇺🇸 This is a personal repository for preparing software engineering (SWE) interviews.
+This repository contains my personal study materials and coding practice aimed at strengthening my software engineering skills, particularly for technical interviews with leading tech companies.
+
+## Overview
+
+I use this repository as a central place to consolidate:
+
+- Algorithm and data structure problems solved in Python  
+- Coding exercises aligned with well-known learning resources  
+- Notes on system design and software engineering best practices  
+- Practice questions and sample solutions for coding interviews  
+- Reflections on learning progress and insights gained  
+
+## Structure
+
+- `/algorithms` — Implementations of common algorithmic problems and patterns  
+- `/design` — Notes and diagrams on system design concepts  
+- `/practice` — Coding exercises from books and online platforms  
+- `/notes` — Written reflections, study plans, and technical explanations  
+
+## Goals
+
+- Deepen understanding of algorithms and data structures through consistent coding practice  
+- Improve problem-solving speed and code readability  
+- Gain familiarity with common interview topics and question formats  
+- Develop a disciplined study habit and track progress over time  
+
+## Usage
+
+Feel free to browse the code and notes for reference or inspiration. Contributions and feedback are welcome to help improve the quality and clarity of this study repository.
+
+## Contact
+
+For any questions or suggestions, please reach out through GitHub Issues or Discussions.
 
 ---
 
-## 🚀 環境構築 / Environment Setup
+Thank you for visiting my personal study repository!
 
-### 要件 / Requirements
-
-- Python3
-- Docker
-- Docker Compose
-
-### セットアップ手順 / Setup Instructions
-
-```bash
-# プロジェクトディレクトリに移動 / Move to project directory
-$ cd your_project_path
-
-# コンテナのビルドと起動 / Build and run container
-$ docker-compose up -d --build
-
-# コンテナ内に入る / Enter the container
-$ docker-compose exec python3 bash
-
-# シャットダウン / Shutdown
-$ docker-compose down
-```
-
-
-| 日本語タイトル             | 英語タイトル                        | 説明                                         |
-|---------------------------|-------------------------------------|----------------------------------------------|
-| 『なっとくアルゴリズム』 | Understanding Algorithms           | アルゴリズムを直感的に理解できる入門書      |
-| アルゴリズム図鑑          | Algorithm Visual Guide             | 図解で楽しくアルゴリズムを学べる            |
-| 独学プログラマ            | The Self-Taught Programmer         | 初学者向けの実用的な学習ガイド              |
-| 結城浩のデザインパターン入門 | Design Patterns by Hiroshi Yuki | OOPとデザインパターンをわかりやすく解説     |
-| Code Complete             | Code Complete by Steve McConnell    | ソフトウェア設計と開発のベストプラクティス |
-s
