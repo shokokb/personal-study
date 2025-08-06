@@ -2,7 +2,17 @@
 
 class Human:
 
-    fruits = {"💗", "🤩", "🕊️", "🙏", "😊", "🎁", "🤝", "🧘", "⛓️"}
+    fruits = {
+        "💗",  # Love
+        "🤩",  # Joy
+        "🕊️",  # Peace
+        "🙏",  # Patience
+        "😊",  # Kindness
+        "🎁",  # Goodness
+        "🤝",  # Faithfulness
+        "🧘",  # Gentleness
+        "⛓️",  # Self-control
+    }
 
     def __init__(self):
         self._piece = input("What is your piece?")
@@ -16,4 +26,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
