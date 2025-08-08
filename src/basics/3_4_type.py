@@ -24,22 +24,32 @@ def main():
 
     print(type(param))
     
-    if type(param) is str:
+    if isinstance(param, str): 
+    # if type(param) is str:
         print(f"{param} is str")
-    elif type(param) is int:
+    elif isinstance(param, int):
+    # elif type(param) is int:
         print(f"{param} is int")
-    elif type(param) is bool:
+    elif isinstance(param, bool):
+    # elif type(param) is bool:
         print(f"{param} is bool")
     elif param is None:
         print(f"{param} is None")
     elif isinstance(param, Dog):
-    # elif param is Dog: # NG
+    # elif param is Dog: # an instance is not a class 
         print(f"{param.name} is a dog")
     else:
         print("???")
 
-    if type(param) in (str, int):
+    if isinstance(param, (str, int)):
+    # if type(param) in (str, int):
         print(f"{param} is str or int")
+
+    list1 = [1, 2, 3]
+    list2 = list1
+    list3 = [1, 2, 3]
+    print(list1 is list2) # True because they are the same pointer.
+    print(list1 is list3) # False because they are the diffferent pointer.
 
 if __name__ == "__main__":
     main()
