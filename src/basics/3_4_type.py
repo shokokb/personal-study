@@ -33,11 +33,10 @@ def main():
     elif param is None:
         print(f"{param} is None")
     elif isinstance(param, Dog):
+    # elif param is Dog: # NG
         print(f"{param.name} is a dog")
     else:
         print("???")
-
-
 
     if type(param) in (str, int):
         print(f"{param} is str or int")
