@@ -36,3 +36,6 @@ class TestSolution(unittest.TestCase):
 if __name__ == "__main__":
     tester = TestSolution()
     tester.testTwoSum()
+
+#---
+# Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
