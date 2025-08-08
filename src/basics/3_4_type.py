@@ -1,6 +1,10 @@
 # coding : UTF-8
 
-class Dog:
+class Animal:
+    def cry(self):
+        print("...")
+
+class Dog(Animal):
     name = ""
 
     def __init__(self, name):
@@ -41,9 +45,12 @@ def main():
     else:
         print("???")
 
+    if isinstance(param, Animal): # see the parent class
+        print(f"{param.name} is an animal") 
+
     if isinstance(param, (str, int)):
     # if type(param) in (str, int):
-        print(f"{param} is str or int")
+        print(f"{param} is str or int")        
 
     list1 = [1, 2, 3]
     list2 = list1
