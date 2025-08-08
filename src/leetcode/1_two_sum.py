@@ -3,14 +3,29 @@ import unittest
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         # Basic idea(O(n**2))
-        length = len(nums)
-        for idx1 in range(length):
-            for idx2 in range(idx1 + 1, length):
-                if nums[idx1] + nums[idx2] == target:
-                    return [idx1, idx2]
+        # length = len(nums)
+        # for idx1 in range(length):
+        #     for idx2 in range(idx1 + 1, length):
+        #         if nums[idx1] + nums[idx2] == target:
+        #             return [idx1, idx2]
 
         # Another idea(???)
         # Sort nums at first, and find the other number by using binary search
+
+        # Better idea
+        # Using a dictionary as a hashtable
+        my_dict = {}
+        i = 0
+        for num in nums:        # O(n)
+            my_dict[num] = i    # O(1)
+            i += 1
+
+        i = 0
+        for num in nums:
+            idx1 = i
+            idx2 = my_dict[target - num]
+            if idx2 is not None:
+                return [idx1, idx2]
         return []
 
 class TestSolution(unittest.TestCase):
