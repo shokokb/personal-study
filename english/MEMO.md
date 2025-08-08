@@ -1,0 +1,2 @@
+- 代入する
+- 非演算子・演算子　operand and operetor
