@@ -1,6 +1,12 @@
 # coding : UTF-8
 
 from abc import ABCMeta, abstractmethod
+from typing import Protocol
+
+class ICryable(Protocol):
+    @abstractmethod
+    def cry(self) -> str:
+        pass
 
 class Animal(metaclass = ABCMeta):
     name = ""
@@ -8,20 +14,27 @@ class Animal(metaclass = ABCMeta):
     def __init__(self, name):
         self.name = name
 
-    @abstractmethod
-    def cry(self):
-        pass
-
 class Dog(Animal):
-    def cry(self):
-        print("Woof")
+    def cry(self) -> str:
+        return "Woof"
+
+class Duck(Animal):
+    def cry(self) -> str:
+        return "Quack"
+
+def make_animal_cry (animal: ICryable):
+    print(animal.cry())
 
 def main():
     
     john = Dog("John")
     
     print(f"Hello, {john.name}")
-    john.cry()
+    make_animal_cry(john)
+
+    marry = Duck("Marry")
+    print(f"Hello, {marry.name}")
+    make_animal_cry(marry)
 
     if isinstance(john, Dog):
         print(f"{john.name} is a dog.")
