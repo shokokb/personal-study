@@ -2,6 +2,9 @@
 
 from enum import Enum
 
+# case value
+# case pattern
+# case wild-card(_)
 class Http:
     @staticmethod
     def error(no) -> str:
