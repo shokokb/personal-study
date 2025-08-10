@@ -1,5 +1,9 @@
 # coding : UTF-8
 
+# Bubble Sort
+# Stable sort - maintains the relative order of equal elements
+# Time complexity: O(n^2) - inefficient for large datasets
+# Spece complexity: O(1) - constant space
 def bubble_sort(l):
     for idx in range(len(l)):
         # Elements before index idx (l[:idx]) are already sorted.
