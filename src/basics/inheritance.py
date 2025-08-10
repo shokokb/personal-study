@@ -71,7 +71,8 @@ class Creator:
         print(entity.cry())
     
     def make_entity_run(self, entity : IRunnable):
-        entity.run()
+        if entity.run():
+            print("Completed!")
 
 def main():
 
