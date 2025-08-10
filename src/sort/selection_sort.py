@@ -1,10 +1,19 @@
 # coding : UTF-8
 
-# Selection Sort
-# Uhstable sort - does not maintains the relative order of equal elements
-# Time complexity: O(n^2) - inefficient for large datasets
-# Spece complexity: O(1) - constant space
-def selection_sort(l):
+def selection_sort(l, stable = True):
+    """
+    Selection Sort implementation.
+    Unstable sort - does not maintains the relative order of equal elements
+    Time complexity: O(n^2) - inefficient for large datasets
+    Space complexity: O(1) - constant space
+    
+    Args:
+        l (list): List to be sorted.
+        stable (bool): If True, use stable sorting method; else unstable.
+        
+    Returns:
+        list: Sorted list.
+    """
     n = len(l)
 
     for idx in range(n):
@@ -15,22 +24,23 @@ def selection_sort(l):
             if l[i] < l[min_idx]:
                 min_idx = i
 
-        # Unstable
-        # l[idx], l[min_idx] = l[min_idx], l[idx]
+        if stable:
+            key = l[min_idx]
 
-        # Stable 
-        key = l[min_idx]
-
-        while min_idx > idx:
-            l[min_idx] = l[min_idx - 1]
-            min_idx -= 1
+            while min_idx > idx:
+                l[min_idx] = l[min_idx - 1]
+                min_idx -= 1
         
-        l[idx] = key
+            l[idx] = key
+        else:
+            # Unstable
+            l[idx], l[min_idx] = l[min_idx], l[idx]
+
     return l
 
 def main():
     l = [3, 1, 2, 5, 4]
-    sorted_list = selection_sort(l)
+    sorted_list = selection_sort(l, stable = True)
     print(sorted_list)
 
 if __name__ == "__main__":
