@@ -2,8 +2,35 @@
 
 ## 0. ウォームアップ（2分）
 - [ ] `if`, `elif`, `else` で簡単な条件分岐（偶数・奇数判定）
+
+```python
+fruit = "orange"
+if fruit == "apple":
+  print("a fruit in eden")
+elif fruit == "orange":
+  print("a fruit planted in Japan")
+else:
+  print("a fruit")
+```
+
 - [ ] `for` + `range` で 0〜9 の合計を求める
+
+```python
+# answer = sum(range(10))
+answer = 0
+for num in range(10):
+  answer += num
+print(answer)
+```
+
 - [ ] `while` でカウントダウン（5 → 1）
+
+```python
+num = 5
+while num >= 1:
+  print(num)
+  num -= 1
+```
 
 ---
 
