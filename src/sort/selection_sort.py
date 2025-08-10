@@ -3,13 +3,13 @@
 def selection_sort(l, stable = True):
     """
     Selection Sort implementation.
-    Unstable sort - does not maintains the relative order of equal elements
+    Unstable sort - generally does not maintain the relative order of equal elements
     Time complexity: O(n^2) - inefficient for large datasets
     Space complexity: O(1) - constant space
     
     Args:
         l (list): List to be sorted.
-        stable (bool): If True, use stable sorting method; else unstable.
+        stable (bool): If True, use stable sorting method; otherwise unstable.
         
     Returns:
         list: Sorted list.
