@@ -37,4 +37,5 @@ Graduated: March 2006
 - 自主プロジェクトやOSSへの貢献
 - Celebrate Recoveryなどのボランティア活動
 - 文章でのストーリーや経歴の背景
+- ポートフォリオやGitHubリンクなど
 
