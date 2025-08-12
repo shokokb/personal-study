@@ -1,5 +1,6 @@
 # coding: utf-8
 
+# TimeComplexity : O(logN)
 def binary_search(arr, target):
     left = 0
     right = len(arr) - 1 # 6
