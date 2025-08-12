@@ -1,4 +1,38 @@
-# Resume
+# [Your Name] (e.g., John Smith)
+
+**Contact**  
+📧📱 => See QR code below for email and phone 
+🌐 tomoshibeee.com
+
+---
+
+## Skills Highlight
+
+- Python / JavaScript / React / GCP / Docker / CI/CD / DevOps  
+- Experience as a team leader
+
+---
+
+## Work Experience (Summary)
+
+### ABC Corporation (Apr 2021 – Mar 2023)  
+- Led a team of 5 to develop and maintain an e-commerce site with 99.9% uptime  
+- Improved deployment speed by 40% by implementing CI/CD pipelines  
+- Reduced page load time by 30%, enhancing overall user experience
+
+### XYZ Inc. (Jan 2018 – Mar 2021)  
+- Frontend engineer  
+- Led UI/UX improvement projects
+
+### Mitose LLC(Apr 2020 - Jan 2021)
+- Founder, Full stack Engineer
+
+---
+
+## For detailed info and full resume, please scan the QR code below 👇
+
+![QR Code](https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=https://linktr.ee/yourprofile)
+
 
 - 名前・連絡先・リンク（LinkedIn/Litlink）
 - 学歴
