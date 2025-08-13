@@ -1,44 +1,23 @@
-# Complexity
+# Comparison of Array, List, and Python List
 
-## Time Complexity:時間計算量
+## Table
 
-- ファイル転送
+| Feature | Array | List | Python List |
+|---------|-------|------|-------------|
+| Element Storage | Elements are next to each other in memory | Elements are in nodes | Elements are next to each other in memory, but list can grow |
+| Size | Fixed | Can change | Can change |
+| Index Access | Fast, O(1) | Slow, O(n) because of linear search | Fast, O(1) |
+| Add or Remove Elements | Slow, O(n) | Fast, O(1) | Slow in the middle, O(n) |
+| Search for Value | O(n) because of linear search | O(n) | O(n) |
+| Memory Use | High | Low | Medium |
 
-  - 電子送信：ファイルサイズを s とすると、O(s)となる。
-  - 空輸：O(1)
+## Notes
 
-- Big O
-  - 計算時間の上限
-- Big θ（シータ）
-  - 計算時間の下限
-- Big Ω（オメガ）
+- **Array**  
+  Elements are stored next to each other. Access by index is fast. Changing the size needs copying all elements.
 
-  - θ と Ω の両方
+- **List**  
+  Elements are in nodes. Adding or removing elements is fast. Access by index is slow because we have to go through nodes.
 
-- 最善のケース
-- 最悪のケース
-- 期待のケース
-- 最悪のケースと期待ケースはほぼ同じ
-
-## Space Complexity:空間計算量
-
-- アルゴリズムに要求されるメモリの量
-- コール・スタック
-
-## Complexity の増加量
-
-- O(n!) > O(2^n) > O(n^2) > O(nlogn) > O(n) > O(logn) > O(1)
-
-## 償却計算量
-
----
-
-## 再帰の実行時間
-
-- O(枝の数^枝の深さ)
-
-# 集合
-- カルノー図
-- マルコフ過程
-
-　　　　　　
+- **Python List**  
+  It is like a dynamic array. Access by index is fast. Adding at the end is usually fast. Inserting or removing in the middle is slow. It can grow when needed.
