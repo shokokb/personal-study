@@ -1,7 +1,5 @@
 # coding : UTF-8
 
-from collections import deque
-
 def main():
     queue = []
 
@@ -14,13 +12,13 @@ def main():
     queue.append("Red")     # Almost O(1)
     print(queue)
 
-    item = queue.pop(0)     # O(1)
+    item = queue.pop(0)     # O(n)
     print(item, queue)
 
-    item = queue.pop(0)     # O(1)
+    item = queue.pop(0)     # O(n)
     print(item, queue)
 
-    item = queue.pop(0)     # O(1)
+    item = queue.pop(0)     # O(n)
     print(item, queue)
 
 if __name__ == "__main__":
