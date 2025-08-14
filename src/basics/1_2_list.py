@@ -9,7 +9,7 @@ def main():
     l[1] = "*"
     print("After assign l[1] = '*':", l, "O(1)")
 
-    # 3. Append at end
+    # 3. Push / Append at end
     l.append(4)  
     print("After append 4:", l, "Amortized O(1)")
 
@@ -77,6 +77,25 @@ def main():
     # 15. clear
     l.clear()
     print("After clearing list:", l, "O(n)")
+
+    # 16. Slice
+    l = [0, 1, 2, 3, 4, 5]
+    print(l[1:3])
+    print(l[2:])
+    print(l[:])
+    print(l[:-3])
+
+    # 17. Peek
+    print(l[-1])
+
+    # 18. Is Empty
+    def is_emply(l):
+        return len(l) == 0
+    print(l, "is empty:", is_emply(l))
+
+    # 19. Size
+    print("Size:", len(l))
+         
 
 if __name__ == "__main__":
     main()
