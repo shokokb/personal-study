@@ -1,5 +1,9 @@
 # Python List vs Deque Cheat Sheet
 
+- If you want FIFO or LIFO, deque is the best.
+- If you need index access or sorting, use a list.
+- If you remove items from the front a lot, always use deque, not a list.
+
 | Operation                | Python List             | Time Complexity | Deque                  | Time Complexity |
 |--------------------------|-----------------------|----------------|-----------------------|----------------|
 | Access by index          | l[i]                  | O(1)           | N/A                   | N/A            |
@@ -16,3 +20,5 @@
 | Reverse                  | l.reverse()           | O(n)           | N/A                   | N/A            |
 | Count occurrences        | l.count(x)            | O(n)           | N/A                   | N/A            |
 | Clear all elements       | l.clear()             | O(n)           | dq.clear()            | O(n)           |
+
+
