@@ -21,3 +21,13 @@
 
 - **Python List**  
   It is like a dynamic array. Access by index is fast. Adding at the end is usually fast. Inserting or removing in the middle is slow. It can grow when needed.
+
+# List vs Tuple vs Set vs Dictionary
+| Collection   | Order | Duplicates | Index Access | Search   | Add       | Remove    | Notes |
+|--------------|-------|-----------|--------------|----------|-----------|-----------|-------|
+| Tuple        | Yes   | Yes       | O(1)         | O(n)     | ✕         | ✕         | Immutable, read-only |
+| List         | Yes   | Yes       | O(1)         | O(n)     | O(1)*     | O(n)      | Mutable, ordered, slow to remove from start |
+| Set          | No    | No        | ✕            | O(1) avg | O(1) avg  | O(1) avg  | Mutable, unordered, no duplicates, fast search/add/remove |
+| Dictionary   | No    | No        | ✕ (keys yes) | O(1) avg | O(1) avg  | O(1) avg  | Keys are fast to access (hash table), values can be anything |
+
+*List append is “Amortized O(1)”
