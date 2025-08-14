@@ -28,14 +28,24 @@ def main():
     # 7. Remove by value
     # l.append(1) # first node of x = 1
     # print(l)
-    l.remove(1)
-    print("After remove 1:", l, "O(n)")
+    v = 1
+    l.remove(v)
+    print(f"After remove first node of {1}:", l, "O(n)")
     l.insert(1, 1)
+    # Remove all items of target value
+    # target = 1
+    # l = [x for x in l if x != target]
 
     # 8. Index
-    n = 2
-    i = l.index(2)
-    print(f"First index of {n}:", i, "O(n)")
+    try:
+        n = 2
+        i = l.index(2)
+        print(f"First index of {n}:", i, "O(n)")
+    except ValueError:
+        print("ValueError")
+    # Find all indices of target value
+    # target = 1
+    # indices = [i for i, x in enumerate(l) if x == target]
 
     # 9. In
     x = 3
