@@ -11,9 +11,18 @@ def linear_search_arr(arr, name):
             return arr[i][0], arr[i][1]
     return None, None
 
-def linear_search_hashtable(ht, name):
+# instead of ht[k] O(1)
+# this case is O(n)
+def linear_search_hashtable_by_name(ht, name):
     for k in ht:
-        if ht[k] == name:
+        if k == name:
+            return k, ht[k]
+    return None, None
+
+# this case is O(n)
+def linear_search_hashtable_by_value(ht, value):
+    for k in ht:
+        if ht[k] == value:
             return k, ht[k]
     return None, None
 
@@ -40,6 +49,10 @@ def main():
         "Bob" : "M"
     }
     print(ht["Sue"]) # Almost O(1), O(n) when a lot of collisions occur
+    name, gender = linear_search_hashtable_by_name(ht, "Sue")
+    print("linear_search_hashtable_by_name", name, gender)
+    name, gender = linear_search_hashtable_by_value(ht, "F")
+    print("linear_search_hashtable_by_value", name, gender)
 
 if __name__ == "__main__":
     main()
