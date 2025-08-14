@@ -26,6 +26,8 @@ def main():
     print("After insert 1 at index 1:", l, "O(n)")
 
     # 7. Remove by value
+    # l.append(1) # first node of x = 1
+    # print(l)
     l.remove(1)
     print("After remove 1:", l, "O(n)")
     l.insert(1, 1)
@@ -65,6 +67,6 @@ def main():
     # 15. clear
     l.clear()
     print("After clearing list:", l, "O(n)")
-    
+
 if __name__ == "__main__":
     main()
