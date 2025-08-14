@@ -1,3 +1,5 @@
+# coding : UTF-8
+
 def main():
     l = [0, 1, 2, 3]
     print("Initial list:", l)
@@ -95,7 +97,10 @@ def main():
 
     # 19. Size
     print("Size:", len(l))
-         
 
+    # 20. Dequeue
+    item = l.pop(0)
+    print("Dequeue", item, l)
+         
 if __name__ == "__main__":
     main()
