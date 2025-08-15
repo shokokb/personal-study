@@ -21,14 +21,36 @@ class Solution:
         # return log_n.is_integer()
 
         #===
-        return n > 0 and (n & (n - 1) == 0) and (n - 1) % 3 == 0
+        # O(1)
+        return \
+            n > 0 and \
+            (n & (n - 1) == 0) and \
+            (n - 1) % 3 == 0
+            # 2^x power of two
+            # 1   → 0b0001
+            # 2   → 0b0010
+            # 4   → 0b0100
+            # 8   → 0b1000
+            # 4^x
+            # 4^0 = 1 → 1 - 1 = 0 → 0 % 3 = 0
+            # 4^1 = 4 → 4 - 1 = 3 → 3 % 3 = 0
+            # 4^2 = 16 → 16 - 1 = 15 → 15 % 3 = 0
+            # 4^3 = 64 → 64 - 1 = 63 → 63 % 3 = 0
 
 class TestSolution(unittest.TestCase):
     def testIsPowerOfFour(self):
         s = Solution()
-        self.assertEqual(True,  s.isPowerOfFour(16))
-        self.assertEqual(False, s.isPowerOfFour(5))
-        self.assertEqual(True,  s.isPowerOfFour(1))
+        self.assertEqual(True,   s.isPowerOfFour(1))
+        self.assertEqual(False,  s.isPowerOfFour(2))
+        self.assertEqual(False,  s.isPowerOfFour(3))
+        self.assertEqual(True,   s.isPowerOfFour(4))
+        self.assertEqual(False,  s.isPowerOfFour(5))
+        self.assertEqual(False,  s.isPowerOfFour(6))
+        self.assertEqual(False,  s.isPowerOfFour(7))
+        self.assertEqual(False,  s.isPowerOfFour(8))
+        self.assertEqual(False,  s.isPowerOfFour(9))
+        self.assertEqual(False,  s.isPowerOfFour(10))
+        self.assertEqual(True,   s.isPowerOfFour(16))
 
 def main():
     unittest.main()
