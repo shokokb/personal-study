@@ -8,7 +8,7 @@ sys.setrecursionlimit(1500)
 class QuickSort:
 
     # Time Complexity : O(nlogn), but O(n^2) in the worst case
-    # Space Complexity: O(1)
+    # Space Complexity: O(n), but O(1) when using an in-place version
     def sort (l) :
 
         """
