@@ -6,9 +6,9 @@ from typing import List
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
         # 1. Easiest Way (Linear Search)
-        if strs is []:
+        if not strs:
             return ""
-        min_len = min([len(s) for s in strs])
+        min_len = min(len(s) for s in strs)
         for i in range(min_len):    # O(n)
             if any(s[i] != strs[0][i] for s in strs):
             # char_set = set(s[i] for s in strs) #(O)
