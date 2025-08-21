@@ -6,9 +6,10 @@ from typing import List
 import sys
 
 class Solution:
+    # Time complexity : O(n)
     def removeElement(self, nums: List[int], val: int) -> int:
         i = 0
-        for j in range(len(nums)):
+        for j in range(len(nums)): 
             if nums[j] != val:
                 nums[i] = nums[j]
                 i += 1
