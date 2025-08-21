@@ -4,6 +4,19 @@ import unittest
 from typing import List 
 
 class Solution:
+    def partLongestCommonPrefix(self, strs: List[str], s:int, t:int) -> str:
+        if not strs:
+            return ""
+
+        if t <= s:
+            return ""
+
+        pivot = (s+t+1) // 2
+
+
+        
+        return ""
+
     def longestCommonPrefix(self, strs: List[str]) -> str:
         # 1. Easiest Way (Linear Search)
         # if not strs:
@@ -18,20 +31,35 @@ class Solution:
         
         # 2. Dictionary Sort
         # O(nlogn)
+        # if not strs:
+        #     return ""
+        # strs.sort() # O(nlogn)
+        # min_len = min(len(strs[0]), len(strs[-1]))
+        # for i in range(min_len): # m
+        #     if strs[0][i] != strs[-1][i]:
+        #         return strs[0][:i]
+        # return strs[0][:min_len]
+
+        # 3. Using Pivot
         if not strs:
             return ""
-        strs.sort() # O(nlogn)
-        min_len = min(len(strs[0]), len(strs[-1]))
-        for i in range(min_len): # m
-            if strs[0][i] != strs[-1][i]:
-                return strs[0][:i]
-        return strs[0:min_len]
+
+        prefix = strs[0]
+        for i in range(1, len(strs)):
+            j = 0
+            while j < len(strs[i]) and j < len(prefix) and prefix[j] == strs[i][j]:
+                j += 1
+            prefix = prefix[:j]  
+        if prefix == "":
+            return prefix          
+        return prefix
 
 class TestSolution(unittest.TestCase):
     def testLongestCommonPrefix(self):
         s = Solution()
         self.assertEqual("fl", s.longestCommonPrefix(["flower","flow","flight"]))
         self.assertEqual("", s.longestCommonPrefix(["dog","racecar","car"]))
+        self.assertEqual("", s.longestCommonPrefix([]))
 
 
 def main():
