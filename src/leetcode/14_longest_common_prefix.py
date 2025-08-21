@@ -4,19 +4,6 @@ import unittest
 from typing import List 
 
 class Solution:
-    def partLongestCommonPrefix(self, strs: List[str], s:int, t:int) -> str:
-        if not strs:
-            return ""
-
-        if t <= s:
-            return ""
-
-        pivot = (s+t+1) // 2
-
-
-        
-        return ""
-
     def longestCommonPrefix(self, strs: List[str]) -> str:
         # 1. Easiest Way (Linear Search)
         # if not strs:
