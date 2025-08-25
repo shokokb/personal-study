@@ -25,7 +25,7 @@ class QuickSort:
         
         # Partitioning
         pivot = l[-1]
-        left =  [v for v in l[:-1] if v <= pivot]
+        left =  [v for v in l[:-1] if v <= pivot]   # O(n)
         right = [v for v in l[:-1] if v >  pivot]
         # Divide and Conquer
         # Combine
