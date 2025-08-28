@@ -8,8 +8,9 @@ class MergeSort:
         if len(l) <= 1:
             return l
 
-        left_arr = l[:len(l)//2]
-        right_arr = l[len(l)//2:]
+        mid = len(l) // 2
+        left_arr = l[:mid]
+        right_arr = l[mid:]
 
         sorted_left = MergeSort.sort(left_arr)
         sorted_right = MergeSort.sort(right_arr)
