@@ -2,6 +2,7 @@
 import math
 import unittest
 import sys
+import time
 
 sys.setrecursionlimit(1500)
 
@@ -35,7 +36,9 @@ sys.setrecursionlimit(1500)
 # Time complexity = O(n)
 # Space complexity = O(1)
 
-def factorial(n):
+# d = {0 : 1}
+
+def factorial(n, recursive = True):
     """
     Calculate factorial iteratively.
 
@@ -48,23 +51,27 @@ def factorial(n):
     Raises:
         ValueError: If n is negative.
     """
+
+    # global d
+    
+    # if n in d:
+    #     return d[n] # O(1) memo
+
     if n < 0:
         raise ValueError("n must be a non-negative integer")
     
-    if n == 0:
+    if n == 0: # Base case
         return 1
+        # return d[n]
 
     result = 1
     # Iteratively multiply from 1 to n to calculate factorial
-    for number in range(1, n + 1):
-        result *= number
+    if recursive:
+        result = n * factorial(n - 1) # Recursive
+    else :
+        for number in range(1, n + 1): # O(n)
+            result *= number
     return result
-
-# === Main Execution (Example Usage) ===
-try:
-    print(factorial(5))  # Expect 120
-except ValueError as e:
-    print(f"Error: {e}")
 
 # === Unit Tests ===
 class TestFactorial(unittest.TestCase):
@@ -83,5 +90,26 @@ class TestFactorial(unittest.TestCase):
             factorial(-1)
         self.assertEqual(str(context.exception), "n must be a non-negative integer")
 
+def main():
+    # === Main Execution (Example Usage) ===
+    try:
+        print(factorial(5))  # Expect 120
+    except ValueError as e:
+        print(f"Error: {e}")
+
+    start_time = time.time()
+    answer = factorial(1000, recursive = False)
+    end_time = time.time()
+    elapsed_time = end_time - start_time
+    print(f"Elapsed time with loop: {elapsed_time}")
+
+    start_time = time.time()
+    answer = factorial(1000, recursive = True)
+    end_time = time.time()
+    elapsed_time = end_time - start_time
+    print(f"Elapsed time with recursion: {elapsed_time}")
+    
+
 if __name__ == "__main__":
+    main()
     unittest.main()
