@@ -13,7 +13,8 @@ class MergeSort:
         left_arr = l[:mid]
         right_arr = l[mid:]
 
-        sorted_left = MergeSort.sort(left_arr)      # O(log(n)
+        # Tn+1 = 2 * Tn + O(n) => O(nlogn)
+        sorted_left = MergeSort.sort(left_arr)
         sorted_right = MergeSort.sort(right_arr)
         # print(left_arr, right_arr, sorted_left, sorted_right)
 
