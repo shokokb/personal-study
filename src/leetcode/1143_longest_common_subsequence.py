@@ -19,34 +19,35 @@ class Solution:
 
         # # Time Complexity = O(mn)
         # # Space Complexity = O(m) dp[2][0...m]
-        # n, m = len(text1), len(text2)
-        # prev = [0] * (m+1) # dp[i-1]
-        # curr = [0] * (m+1) # dp[i]
-        # for i in range(1, n+1):
-        #     for j in range(1, m+1):
-        #         if text1[i-1] == text2[j-1]:
-        #             curr[j] = prev[j-1] + 1
-        #         else:
-        #             curr[j] = max(prev[j], curr[j-1])
-        #     prev, curr = curr, [0] * (m+1)
-        # return prev[m]
-
-        # Time Complexity = O(mn)
-        # Space Complexity = O(m) 1D array
         n, m = len(text1), len(text2)
-        dp =[0]* (2*(m+1))
-        # prev = dp[0:m]
-        # curr = dp[m:2*m]
+        prev = [0] * (m+1) # dp[i-1]
+        curr = [0] * (m+1) # dp[i]
         for i in range(1, n+1):
             for j in range(1, m+1):
                 if text1[i-1] == text2[j-1]:
-                    dp[j+m+1] = dp[j-1] + 1 
-                    # curr[j] = prev[j-1] + 1
+                    curr[j] = prev[j-1] + 1
                 else:
-                    dp[j+m+1] = max(dp[m+1 + j - 1], dp[j])
-            dp[:m+1] = dp[m+1:]
-            dp[m+1:] = [0]*(m+1) 
-        return dp[-1]
+                    curr[j] = max(prev[j], curr[j-1])
+            prev, curr = curr, [0] * (m+1)
+        return prev[m]
+
+        # Time Complexity = O(mn)
+        # Space Complexity = O(m) 1D array
+        # n, m = len(text1), len(text2)
+        # dp = [0] * (2*(m+1))  # prev + curr
+
+        # for i in range(1, n+1):
+        #     for j in range(1, m+1):
+        #         if text1[i-1] == text2[j-1]:
+        #             dp[m+1 + j] = dp[j-1] + 1   # 左上 +1
+        #         else:
+        #             dp[m+1 + j] = max(dp[j], dp[m+1 + j - 1])  # 上 or 左
+        #     # copy curr -> prev
+        #     dp[:m+1] = dp[m+1:2*(m+1)]
+        #     # reset curr
+        #     dp[m+1:] = [0]*(m+1)
+
+        # return dp[m]  # ← prev[m] を返す
 
 class TestSolution(unittest.TestCase):
     def testLongestCommonSubsequence(self):
