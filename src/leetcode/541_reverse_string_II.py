@@ -9,7 +9,7 @@ class Solution:
         n = len(s)
         ret = []
         while start <= n:
-            print(s[start:start+2*k])
+            # print(s[start:start+2*k])
             ret.append(s[start:start+k][::-1])
             ret.append(s[start+k:start+2*k])
             start += 2*k
