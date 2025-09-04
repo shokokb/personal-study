@@ -3,8 +3,9 @@
 import unittest
 
 class Solution:
+    # Time Complexity : O(n)
+    # Space Complexity : O(n)
     def reverseStr(self, s: str, k: int) -> str:
-        
         start = 0
         n = len(s)
         ret = []
