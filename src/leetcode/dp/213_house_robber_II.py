@@ -4,31 +4,18 @@ import unittest
 from typing import List
 
 class Solution:
-    def rob_part(self, nums: List[int]):
-        if len(nums) == 0:
-            return 0
-        if len(nums) == 1:
-            return nums[0]
-        
-        n = len(nums)
-        # dp = [0] * n
-        # dp[0], dp[1] = nums[0], max(nums[0], nums[1])
-        # for i in range(2, n):
-        #     dp[i] = max(dp[i-1], dp[i-2]+nums[i])
-        # return dp[-1]
-        prev2, prev1 = nums[0], max(nums[0], nums[1])
-        for i in range(2, n):
+    def rob_part(self, nums: List[int], start, end):        
+        prev2, prev1 = 0, 0
+        for i in range(start, end+1):
             curr = max(prev2+nums[i], prev1)
             prev2, prev1 = prev1, curr
         return prev1
 
     def rob(self, nums: List[int]) -> int:
-        if len(nums) == 1:
+        n = len(nums)
+        if n == 1:
             return nums[0]
-
-        left  = self.rob_part(nums[:-1])
-        right = self.rob_part(nums[1:])
-        return max(left, right)
+        return max(self.rob_part(nums, 0, n-2), self.rob_part(nums, 1, n-1))
 
 class TestSolution(unittest.TestCase):
     def testRob(self):
