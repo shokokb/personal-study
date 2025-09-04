@@ -20,21 +20,27 @@ class Solution:
 
         # Time Complexity : O(n*m)
         # Space Complexity : O(m)
-        prev = [1] * m
-        curr = [0] * m
+        # prev = [1] * m
+        # curr = [0] * m
+        # for i in range(1,n):
+        #     for j in range(m):
+        #         if j == 0:
+        #             curr[j] = 1
+        #         else :
+        #             curr[j] = prev[j] + curr[j-1]
+        #     prev = curr
+        # return prev[-1]
+        dp = [1]*m
         for i in range(1,n):
-            for j in range(m):
-                if j == 0:
-                    curr[j] = 1
-                else :
-                    curr[j] = prev[j] + curr[j-1]
-            prev = curr
-        return prev[-1]
+            for j in range(1,m):
+                dp[j] += dp[j-1]
+        return dp[-1]
 
 class TestSolution(unittest.TestCase):
     def testUniquePaths(self):
         s = Solution()
         self.assertEqual(28,s.uniquePaths(7,3))
+        self.assertEqual(3,s.uniquePaths(3,2))
 
 def main():
     unittest.main()
