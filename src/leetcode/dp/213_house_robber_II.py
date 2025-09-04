@@ -11,13 +11,16 @@ class Solution:
             return nums[0]
         
         n = len(nums)
-        dp = [0] * n
-        dp[0], dp[1] = nums[0], max(nums[0], nums[1])
+        # dp = [0] * n
+        # dp[0], dp[1] = nums[0], max(nums[0], nums[1])
+        # for i in range(2, n):
+        #     dp[i] = max(dp[i-1], dp[i-2]+nums[i])
+        # return dp[-1]
+        prev2, prev1 = nums[0], max(nums[0], nums[1])
         for i in range(2, n):
-            print(i, i-1, i-2)
-            dp[i] = max(dp[i-1], dp[i-2]+nums[i])
-
-        return dp[-1]
+            curr = max(prev2+nums[i], prev1)
+            prev2, prev1 = prev1, curr
+        return prev1
 
     def rob(self, nums: List[int]) -> int:
         if len(nums) == 1:
