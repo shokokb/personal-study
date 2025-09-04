@@ -9,14 +9,27 @@ class Solution:
 
         # Time Complexity : O(n*m)
         # Space Complexity : O(m*n)
-        dp = [[0] * m for _ in range(n)]
-        dp[0] = [1] * m
-        for i in range(n):
-            dp[i][0] = 1
+        # dp = [[0] * m for _ in range(n)]
+        # dp[0] = [1] * m
+        # for i in range(n):
+        #     dp[i][0] = 1
+        # for i in range(1,n):
+        #     for j in range(1,m):
+        #         dp[i][j] = dp[i-1][j] + dp[i][j-1]
+        # return dp[-1][-1]
+
+        # Time Complexity : O(n*m)
+        # Space Complexity : O(m)
+        prev = [1] * m
+        curr = [0] * m
         for i in range(1,n):
-            for j in range(1,m):
-                dp[i][j] = dp[i-1][j] + dp[i][j-1]
-        return dp[-1][-1]
+            for j in range(m):
+                if j == 0:
+                    curr[j] = 1
+                else :
+                    curr[j] = prev[j] + curr[j-1]
+            prev = curr
+        return prev[-1]
 
 class TestSolution(unittest.TestCase):
     def testUniquePaths(self):
