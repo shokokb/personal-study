@@ -39,12 +39,25 @@ class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
         if not root:
             return 0
-        return max(self.maxDepth(root.left), self.maxDepth(root.right)) + 1
+        # return max(self.maxDepth(root.left), self.maxDepth(root.right)) + 1
+        # Function call overhead
+        stack = [(root, 1)]
+        max_depth = 0
+
+        while stack:
+            node, depth = stack.pop()
+            max_depth = max(max_depth, depth)
+            if node.left:
+                stack.append((node.left, depth+1))
+            if node.right:
+                stack.append((node.right, depth+1))
+        return max_depth
 
 class TestSolution(unittest.TestCase):
     def testMaxDepth(self):
         s = Solution()
         self.assertEqual(3, s.maxDepth(TreeNode.list_to_tree([3,9,20,None,None,15,7])))
+        self.assertEqual(2, s.maxDepth(TreeNode.list_to_tree([1,None,2])))
 
 def main():
     unittest.main()
