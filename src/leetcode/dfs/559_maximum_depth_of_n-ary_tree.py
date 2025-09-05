@@ -21,7 +21,10 @@ class Node:
         else:
             self.children = children
 
-    @staticmethod
+    # n = node count
+    # Time  Complexity = O(n) 
+    # Space Complexity = O(n)
+    @staticmethod    
     def to_node(values):
         n = len(values) 
 
@@ -45,12 +48,20 @@ class Node:
 
 class Solution:
     def maxDepth(self, root: 'Node') -> int:
+        # n = node count
+        # Time Complexity = O(n)
+        # Space Complexity = O(h); O(n) in the worst case
         # if root is None:
         #     return 0
         # if not root.children:
         #     return 1
         # # print("[DEBUG]:", root.val, [c.val for c in root.children])
         # return max([self.maxDepth(c) for c in root.children])+1
+
+        # n = node count
+        # h = tree depth
+        # Time Complexity = O(n)
+        # Space Complexity = O(h); O(n)
         if root is None:
             return 0
 
