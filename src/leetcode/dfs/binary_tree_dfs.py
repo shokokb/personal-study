@@ -6,6 +6,9 @@ class TreeNode:
         self.left = left
         self.right = right
 
+# Time Complexity = O(n)
+# Space Complexity = O(h), but O(n) in the worst case
+# h = Tree depth
 def preorder(root):
     if not root:
         return 
