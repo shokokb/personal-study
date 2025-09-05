@@ -25,7 +25,6 @@ class Node:
         queue = deque([root])
 
         parent = None        
-        children_values = []
         for val in values[1:]:
             if val is None:
                 parent = queue.popleft()
