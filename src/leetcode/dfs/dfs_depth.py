@@ -8,6 +8,9 @@ class TreeNode:
         self.left  = left
         self.right = right
 
+    # Time Complexity = O(n)
+    # Space Complexity = O(h), but O(n) in the worst case
+    # h = Tree depth
     @staticmethod
     def depth (root):
         if not root:
