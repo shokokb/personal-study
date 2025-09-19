@@ -1,70 +1,104 @@
-# Python 面接対策 TODOリスト
+# Python Interview Prep TODO List
 
 ---
 
-## 1. 必須レベル（反射的に書ける）
+## 1. Must-Have Skills (should be able to write reflexively)
 
-### 基本制御構文
-- [ o ] 条件分岐（`if`, `elif`, `else`）
-- [ ] ループ（`for` + `range` / 直接イテレーション）
-- [ ] ループ（`while`）
-- [ ] `break` / `continue` の使い方
+### Basic Control Structures
+- [ o ] Conditionals (`if`, `elif`, `else`)
+- [ o ] Loops (`for` + `range` / direct iteration)
+- [ o ] Loops (`while`)
+- [ o ] Usage of `break` / `continue`
 
-### データ構造の基本操作
-- [ ] `list` の生成・`append`・`pop`・スライス
-- [ ] `dict` の生成・アクセス・更新・ループ
-- [ ] `set` の生成・追加・集合演算（`&`, `|`, `-`）
-- [ ] `tuple`（アンパック含む）
+### Basic Data Structure Operations
+- [ o ] `list`: creation, `append`, `pop`, slicing
+- [ o ] `dict`: creation, access, update, iteration
+- [ o ] `set`: creation, addition, set operations (`&`, `|`, `-`)
+- [ o ] `tuple` (including unpacking)
 
-### 組み込み関数
-- [ ] `len()`, `min()`, `max()`, `sum()`, `sorted()`
+### Built-in Functions
+- [ o ] `len()`, `min()`, `max()`, `sum()`, `sorted()`
 - [ ] `enumerate()`, `zip()`, `map()`, `filter()`
-- [ ] `any()`, `all()`
+- [ o ] `any()`, `all()`
 
-### 内包表記
-- [ ] リスト内包表記（例：`[x*2 for x in arr if x > 0]`）
-- [ ] 辞書内包表記（例：`{k: v for k, v in data if 条件}`）
+### Comprehensions
+- [ o ] List comprehension (e.g., `[x*2 for x in arr if x > 0]`)
+- [ ] Dict comprehension (e.g., `{k: v for k, v in data if condition}`)
 
-### 関数定義
-- [ ] 引数（デフォルト値, 可変長 `*args`, `**kwargs`）
-- [ ] `return`
+### Function Definition
+- [ ] Arguments (default values, variable length `*args`, `**kwargs`)
+- [ o ] `return`
 
-### アルゴリズム系小技
+### Algorithm Tricks
 - [ ] `sorted(..., key=..., reverse=True)`
-- [ ] `heapq`（優先度付きキュー）
-- [ ] 二分探索（`bisect`）
+- [ ] `heapq` (priority queue)
+- [ ] Binary search (`bisect`)
 
 ---
 
-## 2. 便利レベル（加点要素）
+## 2. Nice-to-Have Skills (bonus points)
 
-### Python 3.10+ の新機能
-- [ ] `match-case`（パターンマッチ）
-- [ ] 構造的パターンマッチ（部分一致, アンパック）
+### Python 3.10+ Features
+- [ o ] `match-case` (pattern matching)
+- [ ] Structural pattern matching (partial matches, unpacking)
 
-### 列挙型
-- [ ] `Enum` クラスで定数管理
+### Enumerations
+- [ ] Using `Enum` class for constant management
 
-### デコレータ
-- [ ] `@staticmethod`, `@classmethod`
-- [ ] カスタムデコレータ
+### Decorators
+- [ o ] `@staticmethod`, `@classmethod`
+- [ ] Custom decorators
 
-### ジェネレータ
-- [ ] `yield` を使った遅延評価
+### Generators
+- [ ] Lazy evaluation with `yield`
 
 ### `functools` / `itertools`
 - [ ] `lru_cache`
 - [ ] `permutations`, `combinations`, `groupby`
 
-### 型ヒント
+### Type Hints
 - [ ] `list[int]`, `dict[str, int]`
-- [ ] `Optional`, `Union`（`from typing import ...`）
+- [ ] `Optional`, `Union` (from `typing`)
 
-### コンテキストマネージャ
-- [ ] `with` 文（ファイル操作やリソース管理）
+### Context Managers
+- [ ] `with` statement (file handling, resource management)
 
 ---
 
-## まとめ
-- **必須レベル**：基本制御構文・データ構造・組み込み関数は迷わず書けるように
-- **便利レベル**：余裕があれば `match-case` や `Enum` で差別化
+## 3. Algorithms (LeetCode Core)
+
+### Data Structure Basics
+- [ o ] Stack (LIFO) – `append`, `pop`, valid parentheses
+- [ o ] Queue (FIFO) – `collections.deque`
+- [ ] Priority Queue – `heapq`
+- [ ] Hash Map / Hash Set usage
+
+### Search & Traversal
+- [ o ] Depth-First Search (DFS) – recursion & stack
+- [ o ] Breadth-First Search (BFS) – queue
+- [ ] Binary Search (iterative & recursive)
+- [ ] Sliding Window technique
+
+### Dynamic Programming (DP)
+- [ o ] 1D DP (e.g., **House Robber**, Fibonacci)
+- [ o ] 2D DP (e.g., **Longest Common Subsequence**, Edit Distance)
+- [ ] Knapsack pattern
+- [ ] State compression (space optimization)
+
+### Graphs
+- [ ] Adjacency list representation
+- [ ] Topological Sort
+- [ ] Union-Find (Disjoint Set Union, DSU)
+
+### Other Core Patterns
+- [ o ] Two Pointers (e.g., sorted array, linked list)
+- [ ] Prefix Sum
+- [ ] Backtracking (e.g., subsets, permutations)
+- [ ] Greedy algorithms (e.g., interval scheduling, stock problems)
+
+---
+
+## Summary
+- **Must-have skills**: Python basics (syntax, data structures, built-ins).  
+- **Nice-to-have skills**: Pythonic features (`match-case`, `Enum`, `decorators`).  
+- **Algorithms**: Master stack/queue, DFS/BFS, DP, and greedy — they appear frequently in interviews.
