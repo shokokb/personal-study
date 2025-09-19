@@ -8,10 +8,10 @@ class Solution:
 
         n = len(height)
 
-        # left_max = [max(height[:i+1]) for i in range(n)]
+        # left_max = [max(height[:i+1]) for i in range(n)] # O(n^2)
         left_max = [0] * n
         left_max[0] = height[0]
-        for i in range(1, n):
+        for i in range(1, n): # O(n)
             left_max[i] = max(left_max[i-1], height[i])
         
         # right_max = [max(height[i:]) for i in range(n)]
