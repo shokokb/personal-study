@@ -1,96 +1,58 @@
-# 頭頂部に最小値が来るヒープ
+import unittest
+from typing import List
+
 class Solution:
-    def __init__(self):
-        self.heap = []
-        self.idxs = []
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        # # 1. Naive idea(O(n^2))
+        # for idx1 in range(len(nums)):
+        #     for idx2 in range(idx1 + 1, len(nums)):
+        #         if nums[idx1] + nums[idx2] == target:
+        #             return [idx1, idx2]
+        # return []
 
-    def add(self, v):
-        self.idxs.append(len(self.heap))
-        self.heap.append(v)
-        n = len(self.heap) - 1
-        p = (n - 1) // 2
-        while n > 0:
-            # 親が自分より小さければ抜ける
-            if self.heap[p] <= self.heap[n]:
-                break
-            else:
-                self.heap[n], self.heap[p] = self.heap[p], self.heap[n]
-                self.idxs[n], self.idxs[p] = self.idxs[p], self.idxs[n]
-            n = p  # p
-
-    def remove(self):
-        if len(self.heap) == 1:
-            return self.heap[0], self.idxs[0]
-        min = self.heap[0]
-        minidx = self.idxs[0]
-        last = self.heap.pop()
-        last_index = self.idxs.pop()
-        self.heap[0] = last
-        self.idxs[0] = last_index
-        n = 0
-        while n < len(self.heap):
-            cn = 2 * n + 1 # 左側の子
-            cr = 2 * n + 2  # 右側の子
-            if cr < len(self.heap):
-                c = self.heap[cn]  
-                r = self.heap[cr]
-                if r < c:       # 右の子の方が小さい場合
-                    cn = cr
-                    c = r
-            elif cn < len(self.heap):
-                c = self.heap[cn]  
-            else:
-                break
-            if c < last:
-                self.heap[n], self.heap[cn] = self.heap[cn], self.heap[n]
-                self.idxs[n], self.idxs[cn] = self.idxs[cn], self.idxs[n]
-            else:
-                break
-            n = cn
-        return min, minidx
-
-    def sort(list):
-        h = Solution()
-        for n in list:
-            h.add(n)
-
-        ans = []
-        for n in list:
-            m = h.remove()
-            ans.append(m)
-        return ans
-
-    def twoSum(self, nums, target):
-        # ソーティングする
-        data = Solution.sort(nums)
-        print(data)
-        i = 0
-        # # target より大きい要素は切る
-        # for item in data:
-        #     if item[0] > target:
-        #         data = data[:i]
-        #         break
-        #     i += 1
-        # print(data)
-        # 一致するものを探す
-        i = 0
-        for item1 in data[i:]:
-            for item2 in data[i + 1:]:
-                sum = item1[0] + item2[0]
-                if sum == target:
-                    if item1[1] > item2[1]:
-                        return [item2[1], item1[1]]
-                    else:
-                        return [item1[1], item2[1]]
-                elif sum > target:
-                    break
-            i += 1
-        # 一致するものがなければ空のリストを返す
+        # Better idea
+        # Using a hashtable
+        my_dict = {}
+        for i, num in enumerate(nums):
+            try:
+                if (my_dict[target - num] is not None):
+                    return [my_dict[target - num], i]             
+            except KeyError:
+                my_dict[num] = i
         return []
-        
-            
-if __name__ == "__main__":
-    sol = Solution()
-    data = sol.twoSum([230,863,916,585,981,404,316,785,88,12,70,435,384,778,887,755,740,337,86,92,325,422,815,650,920,125,277,336,221,847,168,23,677,61,400,136,874,363,394,199,863,997,794,587,124,321,212,957,764,173,314,422,927,783,930,282,306,506,44,926,691,568,68,730,933,737,531,180,414,751,28,546,60,371,493,370,527,387,43,541,13,457,328,227,652,365,430,803,59,858,538,427,583,368,375,173,809,896,370,789], 542)
-    print(data)
 
+        # Another idea(???)
+        # Sort nums at first, and find the other number by using binary search
+
+class TestSolution(unittest.TestCase):
+    def testTwoSum(self):
+        sl = Solution()
+
+        # Example 1:
+        # Input: nums = [2, 7, 11, 15], target = 9
+        # Output: [0,1]
+        # Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+        self.assertEqual([0, 1], sl.twoSum([2, 7, 11, 15], 9))
+
+        # Example 2:
+        # Input: nums = [3, 2, 4], target = 6
+        # Output: [1, 2]
+        self.assertEqual([1, 2], sl.twoSum([3, 2, 4], 6))
+
+        # Example 3:
+        # Input: nums = [3, 3], target = 6
+        # Output: [0, 1]
+        self.assertEqual([0, 1], sl.twoSum([3, 3], 6))
+
+        
+        # Example 4:
+        # Input: nums = [2,7,11,15], target = 8
+        # Output: []
+        # Explanation: Because nums[idx1] + nums[idx2] != 8, we return [].
+        self.assertEqual([], sl.twoSum([2, 7, 11, 15], 8))
+
+if __name__ == "__main__":
+    unittest.main()
+
+#---
+# Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
