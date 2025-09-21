@@ -26,29 +26,22 @@ class ListNode:
 
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-        dummy = ListNode(0)
+        dummy = ListNode(0)  # ダミーノード
         node = dummy
+        carry = 0
 
-        s, c = 0, 0
-        while l1 or l2:
-            if l1 and l2:
-                s = l1.val + l2.val + c
-            elif l1:
-                s = l1.val + c
-            elif l2:
-                s = l2.val + c
-            c = s // 10
-            s = s % 10
+        # 両方のリストが空でなく、キャリーも残っている間ループ
+        while l1 or l2 or carry:
+            val1 = l1.val if l1 else 0
+            val2 = l2.val if l2 else 0
 
-            node.next = ListNode(s)
+            s = val1 + val2 + carry
+            carry = s // 10
+            node.next = ListNode(s % 10)
             node = node.next
 
-            if l1:
-                l1 = l1.next
-            if l2:
-                l2 = l2.next
-        if c > 0:
-            node.next = ListNode(c)
+            if l1: l1 = l1.next
+            if l2: l2 = l2.next
 
         return dummy.next
 
