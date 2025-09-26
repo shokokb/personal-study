@@ -7,6 +7,7 @@ class SelfHeap:
     def heappush(q, v):
         q.append(v)
         new_index = len(q) - 1
+        # O(logn)
         while new_index > 0:
             parent_index = (new_index - 1) // 2
             if q[parent_index] > q[new_index]:
@@ -17,12 +18,14 @@ class SelfHeap:
     
     @staticmethod
     def heappop(q):
-        min_value = q[0]
+        # O(1) to get min value
+        min_value = q[0]  
         last_element = q.pop()
         if q:
             q[0] = last_element
 
-        index = 0
+        # O(logn) to rebuild tree
+        index = 0 
         while True:
             left_index  = 2 * index + 1
             right_index = 2 * index + 2
