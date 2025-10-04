@@ -7,15 +7,14 @@ class Bellmanford:
         self.start        = start
         self.distances    = {v: float('inf') for v in vertices}
         self.predecessors = {v: None for v in vertices}
-
-    def update(self) :
         self.distances[self.start] = 0
         for i in range(len(self.vertices)-1):
+            temp = self.distances.copy()
             for u, v, w in self.edges:
-                if self.distances[u] + w < self.distances[v]:
-                    self.distances[v] = self.distances[u] + w
+                if self.distances[u] + w < self.distances[v] and self.distances[u] != float('inf'):
+                    temp[v] = min(self.distances[u] + w, temp[v])
                     self.predecessors[v] = u
-            # print(self.distances)
+            self.distances = temp
 
     def get_shortest_path(self, goal):
         path = []
@@ -48,7 +47,6 @@ def main():
         ("A", "C", 4)
     ]
     bf = Bellmanford(vertices, edges, start)
-    bf.update()
     result = bf.has_negative_cycle()
     print("negative cycle" if result else "not negative cycle")
     paths = bf.get_all_paths()
